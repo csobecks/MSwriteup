@@ -1,0 +1,28 @@
+\chapter{Alternate Solution for the Grand Canonical Ensemble}
+In Chapter 1, the grand canonical ensemble, partition function, and occupation probabilities are discussed. The general form for the occupation probabilities is given by Equation (1.6). For this paper, only non-interacting fermions are considered. Since fermions obey the Pauli exclusion principle, only one particle can occupy each energy state and the grand canonical partition function can be written as 
+\begin{equation}
+    Z_{GC}=\sum_{n=0}^1 e^{n\beta(\mu-\epsilon_i)}=1+e^{\beta(\mu-\epsilon_i)}.
+\end{equation}
+Plugging this into Equation (1.6) yields
+\begin{equation}
+    \avg{p_i}=\frac{e^{\beta(\mu-\epsilon_i)}}{1+e^{\beta(\mu-\epsilon_i)}}=\frac{1}{1+e^{\beta(\epsilon_i-\mu)}}.
+\end{equation}
+To connect the occupation probability to the partition function, consider a particular configuration of particles. This configuration has energy levels $\epsilon_i$ and $n_i$ number of particles in the $i$th state. This configuration is described by the product
+\begin{equation}
+    \qty[e^{n_1\beta(\mu-\epsilon_1)}]\times\qty[e^{n_2\beta(\mu-\epsilon_2)}]\times...=\prod_i e^{n_i\beta(\mu-\epsilon_i)}
+\end{equation}
+The partition function is the sum of this product for all possible values of $n_i$. Since only fermions are being considered, $n_i$ is either zero or one. Using this, the partition function becomes
+\begin{align}
+    Z_{GC}&=\sum_{\{n_i\}}\prod_i e^{n_i\beta(\mu-\epsilon_i)}\nonumber\\
+    &=\prod_i\sum_{\{n_i\}} e^{n_i\beta(\mu-\epsilon_i)}\nonumber\\
+    &=\prod_i 1+e^{\beta(\mu-\epsilon_i)}.
+\end{align}
+Inserting Equation (B.2) into the above equation can be done by considering 
+\begin{align}
+    1-p_i=1-\frac{1}{1+e^{\beta(\epsilon_i-\mu)}}=\frac{1}{1+e^{\beta(\mu-\epsilon_i)}}.
+\end{align}
+Substituting this result gives the grand canonical partition function as
+\begin{equation}
+    Z_{GC}=\prod_i\frac{1}{1-p_i}=\prod_i\frac{1}{q_i}
+\end{equation}
+where $q_i$ is the complimentary probability of state $i$. 
