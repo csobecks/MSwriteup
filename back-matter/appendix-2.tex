@@ -1,114 +1,85 @@
-\chapter{Degeneracy Relationships}
-\section{Filled Degenerate Spectrum}
-For Section 2.6.1 the relationship $\frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}}$ arises. Throughout the following calculations, only the leading order terms will be considered since $e^{-\beta\Delta_0}$ is sufficiently small at large $\beta$ .These values will be calculated here starting with the $\avg{n_0}_{g_0}$ term. Plugging in the value for $\avg{n_0}_{g_0}$ from Equation (2.25),
+\chapter{$\chi^2$ derivatives}
+The function, $\chi^2$, is defined as follows.
+\begin{equation}
+\chi^2=\sum_i(p_i-\avg{n_c}_i)^2
+\end{equation}
+The first derivative can be set to zero to find the minima and the second derivative will be used to determine if the zero values are at the the true minimum or at the tail end of this function. Solving the first derivative is done as follows.
+\begin{gather}
+    d\chi^2=\eval{\frac{\partial \chi^2}{\partial \beta^*}}_y d \beta^* 
+    +\eval{\frac{\partial \chi^2}{\partial y}}_{\beta^*} d y\\    
+    \frac{d\chi^2}{d\beta^*}=\eval{\frac{\partial \chi^2}{\partial 
+    \beta^*}}_y +\frac{\partial \chi^2}{\partial y}\Biggr|_{\beta^*} 
+    \frac{d y}{d \beta^*}
+\end{gather}
+The condition that the sum of $p_i$ must equal the total number of particles can be utilized to find the last term in the equation above. 
+\begin{gather}
+    dN=0=\eval{\frac{\partial N}{\partial \beta^*}}_y d \beta^* +\eval{\frac{\partial N}{\partial y}}_{\beta^*} d y\\
+    \eval{\frac{\partial N}{\partial \beta^*}}_y d \beta^*=-\eval{\frac{\partial N}{\partial y}}_{\beta^*} d y\nonumber\\
+    \frac{d y}{d \beta^*}=-\frac{\eval{\frac{\partial N}{\partial \beta^*}}_y}{\eval{\frac{\partial N}{\partial y}}_{\beta^*}}\\
+    \eval{\frac{\partial N}{\partial \beta^*}}_y= \sum_i \frac{\partial p_i}{\partial \beta^*}=\sum_i \frac{-e^{\beta^* \epsilon_i-y}}{(1+e^{\beta^* \epsilon_i-y})^2}\epsilon_i=-\sum_i \epsilon_i p_i q_i\\
+    \eval{\frac{\partial N}{\partial y}}_{\beta^*}=\frac{\partial p_i}{\partial y}=\sum_i -\frac{-e^{\beta^* \epsilon_i-y}}{(1+e^{\beta^* \epsilon_i-y})^2}=\sum_i p_i q_i\\
+    \frac{d y}{d \beta^*}=-\frac{-\sum_i \epsilon_i p_i q_i}{\sum_i p_i q_i}=\frac{\sum_i \epsilon_i p_i q_i}{\sum_i p_i q_i}=C_1
+\end{gather}
+Turning back to the original equation, 
 \begin{align}
-    1-\avg{n_0}_{g_0}&=\frac{1+g_0g_1e^{-\beta\Delta_0}+\frac{g_0(g_0-1)g_1(g_1-1)}{4}e^{-2\beta\Delta_0}}{...}\nonumber\\
-    & \ \ \ -\frac{1+(g_0-1)e^{-\beta\Delta_0}+\frac{(g_0-1)(g_0-2)g_1(g_1-1)}{4} e^{-2\beta\Delta_0}}{...}\nonumber\\
-    &=\frac{g_1e^{-\beta^*\Delta_0}+\frac{(g_0-1)g_1(g_1-1)}{2}e^{-2\beta^*\Delta_0}}{...}\\
-    \frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}}&=\frac{1+(g_0)g_1 e^{-\beta\Delta_0}}{g_1e^{-\beta^*\Delta_0}+\frac{(g_0-1)g_1(g_1-1)}{2}e^{-2\beta^*\Delta_0}}\nonumber\\
-    &=\frac{1+(g_0)g_1 e^{-\beta\Delta_0}}{g_1e^{-\beta^*\Delta_0}(1+\frac{(g_0-1)(g_1-1)}{2}e^{-\beta^*\Delta_0})}.
+    \eval{\frac{\partial \chi^2}{\partial \beta^*}}_y&=\sum_i 2(p_i-\avg{n_c}_i) \frac{-\epsilon_i e^{\beta^* \epsilon_i-y}}{1+e^{\beta^* \epsilon_i-y}}=\sum_i -2(p_i-\avg{n_c}_i)p_i q_i \epsilon_i\\
+    \eval{\frac{\partial \chi^2}{\partial y}}_{\beta^*}&=\sum_i 2(p_i-\avg{n_c}_i) \frac{e^{\beta^* \epsilon_i-y}}{1+e^{\beta^* \epsilon_i-y}}=\sum_i 2(p_i-\avg{n_c}_i)p_i q_i\\
+    0&=\frac{d\chi^2}{d\beta^*}=\sum_i -2(p_i-\avg{n_c}_i)p_i q_i \epsilon_i+\sum_i 2(p_i-\avg{n_c}_i)p_i q_i C_1\nonumber\\
+    0&=\sum_i 2(p_i-\avg{n_c}_i)p_i q_i (\epsilon_i-C_1)\nonumber\\
+    0&=\sum_i 2(p_i-\avg{n_c}_i)p_i q_i (\epsilon_i-\frac{\sum_k \epsilon_k p_k q_k}{\sum_k p_k q_k} )
 \end{align}
-Since $e^{-\beta\Delta_0}$ is sufficiently small, the denominator can be approximated using $(1+x)^{-1}\approx 1-x$. This gives
-\begin{align}
-    \frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}}&=\frac{e^{-\beta\Delta_0}}{g_1}\qty(1+(g_0-1)g_1e^{-\beta\Delta_0})\qty(1-\frac{(g_0-1)(g_1-1)}{2}e^{-\beta\Delta_0})\nonumber\\
-    &=\frac{e^{-\beta\Delta_0}}{g_1} \qty(1+(g_0-1)g_1e^{-\beta\Delta_0}-\frac{(g_0-1)(g_1-1)}{2}e^{-\beta\Delta_0})\nonumber\\
-    &=\frac{e^{-\beta\Delta_0}}{g_1} \qty(1+\frac{1}{2}(g_1+1)(g_0-1) e^{-\beta\Delta_0}).
-\end{align} 
-Squaring this quantity gives
-\begin{align}
-    \qty(\frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}})^2&=\frac{e^{2\beta\Delta_0}}{g_1^2}\qty(1+(g_1+1)(g_0-1)e^{-\beta\Delta_0}).
-\end{align}
+The equation for the first derivative can be set equal to zero in order to find the minimum.
 
-\section{Partially Filled Spectrum Chemical Potential}
-The chemical potential is solved for using the particle number like in Equation (2.32). This develops into  
+Before looking at the second derivative, it is beneficial to analyze the derivatives of the functions $p_i$ and $q_i$.
+\begin{gather}
+    \eval{\frac{\partial p_i}{\partial \beta^*}}_y=-\epsilon_i p_i q_i\\
+    \eval{\frac{\partial p_i}{\partial y}}_{\beta^*}=p_i q_i\\
+    \eval{\frac{\partial q_i}{\partial \beta^*}}_y=\frac{\epsilon_i e^{y- 
+    \beta^* \epsilon_i}}{(e^{y-\beta^* \epsilon_i}+1)^2}=q_i p_i 
+    \epsilon_i\\
+    \eval{\frac{\partial q_i}{\partial y}}_{\beta^*}=\frac{-e^{y-\beta^* 
+    \epsilon_i}}{(e^{y-\beta^* \epsilon_i}+1)^2}=-q_i p_i
+\end{gather}
+These will be useful for the calculations of the second derivative which is done as follows.  
+\begin{gather}
+    \frac{d}{d\beta^*} \qty{\frac{d \chi^2}{d\beta^*}} = \frac{\partial } 
+    {\partial \beta^*} \eval{\qty{\frac{d \chi^2}{d\beta^*}}}_y+ 
+    \frac{\partial }{\partial y} \eval{\qty{\frac{d \chi^2} 
+    {d\beta^*}}}_{\beta^*} \frac{dy}{d\beta^*}\nonumber\\
+    \frac{d}{d\beta^*} \qty{\frac{d \chi^2}{d\beta^*}} = \frac{\partial } 
+    {\partial \beta^*} \eval{\qty{\frac{d \chi^2}{d\beta^*}}}_y+ 
+    \frac{\partial }{\partial y} \eval{\qty{\frac{d \chi^2} 
+    {d\beta^*}}}_{\beta^*} C_1
+\end{gather}
+Once again, each component needs to be calculated. The term $C_1$ is the same so the other two terms are the only ones to be calculated. Starting on the left equation,
 \begin{align}
-    &g_{-1}+l=\frac{g_1}{1+e^{\beta(\Delta_1-\mu)}}+\frac{g_0}{1+e^{-\beta\mu}}+\frac{g_{-1}}{1+e^{\beta(\Delta_{-1}-\mu)}}\\
-    &(g_{-1}+l)(1+e^{\beta(\Delta_1-\mu)})(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})=g_1(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})\nonumber\\
-    &\quad+g_0(1+e^{\beta(\Delta_1-\mu)})(1+e^{\beta(\Delta_{-1}-\mu)})+g_{-1}(1+e^{\beta(\Delta_1-\mu)})(1+e^{-\beta\mu}).
-    \end{align}
-Starting with the left hand side,
-\begin{align}
-    &(g_{-1}+l)(1+e^{\beta(\Delta_1-\mu)})(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})\nonumber\\
-    &\quad=(g_{-1}+l)(1+e^{-\beta\mu}(1+e^{\beta\Delta_1})+e^{-2\beta\mu}e^{\beta\Delta_1})(1+e^{\beta(\Delta_{-1}\beta})\nonumber\\
-    &\quad=(g_{-1}+l)(1+e^{-\beta\mu}(1+e^{\beta\Delta_1})+e^{-2\beta\mu}e^{\beta\Delta_1}+e^{-2\beta\mu}e^{\beta\Delta_{-1}}(1+e^{\beta\Delta_1})\nonumber\\
-    &\quad+e^{-3\beta\mu}e^{\beta(\Delta_1+\Delta_{-1})})\nonumber\\
-    &\quad=(g_{-1}+l)(1+e^{-\beta\mu}(1+e^{\beta\Delta_1}+e^{\beta\Delta_{-1}})+e^{-2\beta\mu}(e^{\beta\Delta_1}+e^{\beta\Delta_{-1}}+e^{\beta(\Delta_{-1}+\Delta_1)})\nonumber\\
-    &\quad+e^{-3\beta\mu}e^{\beta(\Delta_1+\Delta_{-1})}).
+&\frac{\partial}{\partial \beta^*} \qty{\frac{d \chi^2}{d \beta^*}} =\frac{\partial}{\partial \beta^*} [-2\sum_i (p_i-\avg{n_c}_i)p_i q_i \epsilon_i+2\sum_i (p_i-\avg{n_c}_i)p_i q_i C_1]\\
+    &\quad=-2\sum_i[p_i q_i \epsilon_i (-\epsilon_i p_i q_i) +(p_i-\avg{n_c}_i) q_i \epsilon_i(-\epsilon_i p_i q_i)+ (p_i-\avg{n_c}_i)p_i \epsilon_i(q_i p_i \epsilon_i)\nonumber\\
+    &\quad+(-\epsilon_i p_i q_i) p_i q_i C_1+ (p_i-\avg{n_c}_i)(-\epsilon_i p_i q_i) q_i C_1+(p_i-\avg{n_c}_i)p_i(q_i p_i \epsilon_i) C_1\nonumber\\
+    &\quad+ (p_i-\avg{n_c}_i) p_i q_i C_2]
 \end{align}
-Next, the right hand side is
+Where $C_2$ is
 \begin{align}
-    &g_1(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})+g_0(1+e^{\beta(\Delta_1-\mu)})(1+e^{\beta(\Delta_{-1}-\mu)})\nonumber\\
-    &\quad+g_{-1}(1+e^{\beta(\Delta_1-\mu)})(1+e^{-\beta\mu})\\
-    &\quad=g_1(1+e^{-\beta\mu}(1+e^{\beta\Delta_{-1}}+e^{\beta\Delta_{-1}}e^{-2\beta\mu}))\nonumber\\
-    &\quad+g_0(1+e^{-\beta\mu}(e^{\beta\Delta_1}+e^{\beta\Delta_{-1}})+e^{-2\beta\mu}e^{\beta(\Delta_1+\Delta_{-1})})\nonumber\\
-    &\quad+g_{-1}(1+e^{-\beta\mu}(1+e^{\beta\Delta_1})+e^{-2\beta\mu}e^{\beta\Delta_1}).
+    C_2&=\frac{\partial C_1}{\partial \beta^*}=\frac{\partial}{\partial \beta^*} \frac{\sum_i p_i q_i \epsilon_i}{\sum_i p_i q_i}\nonumber\\
+    &=\frac{\frac{\partial }{\partial \beta^*}(\sum_i \epsilon_i q_i p_i) \sum_i p_i q_i - \sum_i p_i q_i \epsilon_i \frac{\partial}{\partial \beta^*}(\sum_i p_i q_i)}{(\sum_i p_i q_i)^2}\nonumber\\
+    &=\frac{[\sum_i \epsilon_i(-\epsilon_i p_i q_i)q_i + \sum_i \epsilon_i p_i (p_i q_i \epsilon_i)]\sum_k p_k q_k-\sum_k \epsilon_k p_k q_k[\sum_i \epsilon_i p_i q_i p_i+\sum_i q_i(-\epsilon_i p_i q_i)]}{(\sum_i p_i q_i)^2}\nonumber\\
+    &=\frac{[-\epsilon_i^2p_i q_i^2+ \sum_i \epsilon_i^2 p_i^2 q_i]\sum_k p_k q_k-\sum_k \epsilon_k p_k q_k[\sum_i \epsilon_i p_i^2 q_i-\sum_i \epsilon_i p_i q_i^2]}{(\sum_i p_i q_i)^2}\nonumber\\
+    &=\frac{\sum_i(\epsilon_i^2 p_i q_i(p_i-q_i))}{\sum_i p_i q_i}-\frac{\sum_k \epsilon_k p_k q_k}{(\sum_i p_i q_i)^2}(\sum_i \epsilon_i p_i q_i (p_i-q_i))\nonumber\\
+    &=\frac{\sum_i(\epsilon_i^2 p_i q_i(p_i-q_i))}{\sum_i p_i q_i}-\frac{C_1(\sum_i \epsilon_i p_i q_i (p_i-q_i))}{\sum_i p_i q_i}\nonumber\\
+    &=\frac{\sum_i \epsilon_i p_i q_i(p_i - q_i)(\epsilon_i-C_1)}{\sum_i p_i q_i}
 \end{align}
-Combining both sides together yields,
+For the other term, it can observe that the only difference between the $\beta^*$ derivative and $y$ is a factor of $-\epsilon_i$. Using this knowledge, the other term can be easily written as,
 \begin{align}
-    &0=e^{-3\beta\mu}(e^{\beta(\Delta_1+\Delta_{-1})})\nonumber\\
-    &\quad+e^{-2\beta\mu}(e^{\beta\Delta_1}+e^{\beta\Delta_{-1}}+e^{\beta(\Delta_{-1}+\Delta_1)}-\frac{g_1}{g_{-1}+l}e^{\beta\Delta_{-1}}\nonumber\\
-    &\quad-\frac{g_0}{g_{-1}+l}e^{\beta(\Delta_1+\Delta_{-1})}-\frac{g_{-1}}{g_{-1}+l}e^{\beta\Delta_1})\nonumber\\
-    &\quad+e^{-\beta\mu}(1+e^{\beta\Delta_1}+e^{\beta\Delta_{-1}}-\frac{g_1}{g_{-1}+l}(1+e^{\beta\Delta_{-1}})\nonumber\\
-    &\quad-\frac{g_0}{g_{-1}+l}(e^{\beta\Delta_1}+e^{\beta\Delta_{-1}})-\frac{g_{-1}}{g_{-1}+l}(1+e^{\beta\Delta_1}))\nonumber\\
-    &\quad+(1-\frac{g_1}{g_{-1}+l}-\frac{g_0}{g_{-1}+l}-\frac{g_{-1}}{g_{-1}+l}).
+    \frac{\partial}{\partial y}\qty{\frac{d\chi^2}{d\beta^*}}&=2 
+    \sum_i (p_i-\avg{n_c}_i)\Biggr[(\epsilon_i-C_1)p_iq_i[p_i-q_i-p_iq_i]+p_iq_iC_3\Biggr]
 \end{align}
-
-\section{Partially Filled Spectrum $\beta^*$ to $\beta$}
-In Section 2.5.2, it's necessary to write $e^{-\beta^*\Delta_0}$ in terms of $e^{-\beta\Delta_0}$. This is done by starting by setting Equation (2.46) equal to Equation (2.32). This becomes
-
+where $C_3$ is (using the same factor of $-\epsilon_i$),
+\begin{gather}
+    C_3=\frac{\partial C_1}{\partial y}=\frac{\partial}{\partial 
+    y}\qty{\frac{\sum_i \epsilon_i q_i p_i}{\sum_i p_i q_i}}=\frac{\sum_i p_i q_i(q_i-p_i)(\epsilon_i-C_1)}{\sum_i p_i q_i}
+\end{gather}
+With this, the full second derivative is
 \begin{align}
-    &\frac{1-\avg{n_0}_l}{\avg{n_0}_l}=e^{-\beta^*\mu }=\frac{1}{2}((\frac{g_0}{l}-1)+(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0})\\
-    &\quad\quad +\frac{1}{2}\sqrt{((\frac{g_0}{l}-1)+(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0})^2-4e^{-\beta^*\Delta_0}(1-\frac{g_0}{l}-\frac{g_1}{l})} \nonumber\\
-    &\quad\qty[2\frac{1-\avg{n_0}_l}{\avg{n_0}_l}-\qty(\qty(\frac{g_0}{l}-1)+\qty(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0})]^2=\nonumber\\
-    &\quad\qty[\qty(\frac{g_1}{l}-1)+\qty(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0}]^2-4e^{-\beta^*\Delta_0} \qty(1-\frac{g_0}{l}-\frac{g_1}{l})\\
-    &4\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})^2-4 \frac{1-\avg{n_0}_l}{\avg{n_0}_l} \qty[\qty(\frac{g_0}{l}-1)+\qty(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0}]\nonumber\\
-    &\quad+\qty[\qty(\frac{g_0}{l}-1)+\qty(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0}]^2= \qty[\qty(\frac{g_1}{l}-1)+\qty(\frac{g_1}{l}-1)e^{-\beta^*\Delta_0}]^2\nonumber\\
-    &\quad -4e^{-\beta^*\Delta_0} \qty(1-\frac{g_0}{l}-\frac{g_1}{l})\nonumber\\
-    &\quad e^{-\beta^*\Delta_0}\qty[\qty(\frac{g_1}{l}-1)(-4)\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})+4\qty(1-\frac{g_0}{l}-\frac{g_1}{l})]\nonumber\\
-    &\quad =-4\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})^2+4\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})\qty(\frac{g_0}{l}-1).
-\end{align}
-This last equation can be written to get $\beta^*$ alone. This becomes 
-\begin{align}
-    e^{-\beta^*\Delta_0}&=\frac{\frac{1-\avg{n_0}_l}{\avg{n_0}_l}\qty(\frac{g_0}{l}-1)-\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})^2}{\qty(1-\frac{g_0}{l}-\frac{g_1}{l})-\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})\qty(\frac{g_1}{l}-1)}\\
-    e^{\beta^*\Delta_0}&=\frac{\qty(1-\frac{g_0}{l}-\frac{g_1}{l})-\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})\qty(\frac{g_1}{l}-1)}{\frac{1-\avg{n_0}_l}{\avg{n_0}_l}\qty(\frac{g_0}{l}-1)-\qty(\frac{1-\avg{n_0}_l}{\avg{n_0}_l})^2}\nonumber\\
-    &=\frac{\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})^2\qty(1-\frac{g_0}{l}-\frac{g_1}{l})-\qty(\frac{g_1}{l}-1)\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})}{\qty(\frac{g_0}{l}-1)\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})-1}\nonumber\\
-    &=\frac{\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})^2(g_0+g_1-l)+(g_1-l)\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})}{l-(g_0-l)\qty(\frac{\avg{n_0}_l}{1-\avg{n_0}_l})}\nonumber\\
-    &=\frac{\avg{n_0}_l^2(g_0+g_1-l)+(g_1-l)(\avg{n_0}_l-\avg{n_0}_l^2}{l(1-\avg{n_0}_l)^2-(\avg{n_0}_l-\avg{n_0}_l^2)(g_0-l)}\nonumber\\
-    &=\frac{\avg{n_0}_l(\avg{n_0}_lg_0+\avg{n_0}_lg_1-\avg{n_0}_ll+g_1-g_1\avg{n_0}_l-l+l\avg{n_0}_l)}{l(1-\avg{n_0}_l)-g_0(\avg{n_0}_l-\avg{n_0}_l^2)}\nonumber\\
-    &=\frac{\avg{n_0}_l(g_1-l+g_0\avg{n_0}_l)}{(l-g_0\avg{n_0}_l)(1-\avg{n_0}_l)}\\
-    e^{-\beta^*\Delta_0}&=\frac{\qty(\frac{l}{g_0}-\avg{n_0}_l)\qty(1-\avg{n_0}_l)}{\avg{n_0}_l\qty(\frac{g_1-l}{g_0}+\avg{n_0}_l)}.
-\end{align}
-This equation can be solved by breaking it down into parts. The first part is  
-\begin{align}
-    \frac{l}{g_0}-&\avg{n_0}_l=\frac{l}{g_0}-\frac{l}{g_0}\qty(1-\frac{g_1}{g_0-l+1}e^{-\beta\Delta_0}+\frac{g_1(g_0-l+1)(g_1+l-1)+g_1^2 l}{(g_0-l+1)^2(g_0-l+2)} e^{-2\beta\Delta_0})\nonumber\\
-    &=\frac{lg_1}{g_0(g_0-l+1)}e^{-\beta\Delta_0}\qty(1-\frac{(g_0-l+1)(g_1+l-1)+g_1l}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0})\nonumber
-\end{align}
-\begin{align}
-    &\frac{g_1-l}{g_0}+\avg{n_0}_l=\avg{n_0}_l+\frac{l}{g_0}\Biggr(1-\frac{g_1}{g_0-l+1}e^{-\beta\Delta_0}\nonumber\\
-    &\quad\quad\quad+\frac{g_1(g_0-l+1)(g_1+l-1)+g_1^2 l}{(g_0-l+1)^2(g_0-l+2)} e^{-2\beta\Delta_0}\Biggr)\nonumber\\
-    &\quad=\frac{g_1}{g_0}\qty[1-\frac{l}{g_0-l+1}e^{-\beta\Delta_0}+\frac{l(g_0-l+1)(g_1+l-1)+g_1l^2}{(g_0-l+1)^2(g_0-l+2)} e^{-2\beta\Delta_0}]
-\end{align}
-So the first three terms can be calculated as 
-\begin{align}
-    \frac{\frac{l}{g_0}-\avg{n_0}_l}{\avg{n_0}_l\qty(\avg{n_0}_l+\frac{g_1-l}{g_0})}&=\frac{\frac{lg_1}{g_0(g_0-l+1)}e^{-\beta\Delta_0}\qty[1-\frac{(g_0-l+1)(g_1+l-1)+g_1l}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0}]}{\frac{g_1}{g_0}\qty[1-\frac{l}{g_0-l+1} e^{-\beta\Delta_0}]\frac{l}{g_0}\qty[1-\frac{g_1}{g_0-l+1} e^{-\beta\Delta_0}]}\nonumber\\
-    &=\frac{\frac{g_0}{g_0-l+1}e^{-\beta\Delta-0}\qty[1-\frac{(g_0-l+1)(g_1+l-1)+g_1l}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0}]}{1-\frac{g_1}{g_0-l+1}e^{-\beta\Delta_0}-\frac{l}{g_0-l+1}e^{-\beta\Delta_0}}\nonumber\\
-    =\frac{g_0}{g_0-l+1}&e^{-\beta\Delta_0}\qty[1-\frac{(g_0-l+1)(g_1+l-1)+g_1l}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0}]\nonumber\\
-    &\quad\quad\quad\times\qty[1+e^{-\beta\Delta_0} \frac{g_1+l}{g_0-l+1}].
-\end{align}
-Here only the terms that are first order in $e^{\beta\Delta_0}$ will be kept from the product of the two brackets. This gives
-\begin{align}
-    &=\frac{g_0}{g_0-l+1}e^{-\beta\Delta_0}\qty[1+e^{-\beta\Delta_0}\qty(\frac{g_1+l}{g_0-l+1}-\frac{(g_0-l+1)(g_1+l-1)+g_1l}{(g_0-l+1)(g_0-l+2)})]\nonumber\\
-    &=\frac{g_0}{g_0-l+1}e^{-\beta\Delta_0}\qty[1+e^{-\beta\Delta_0}\qty(\frac{(g_0-l+1)+g_1+l-g_1l}{(g_0-l+1)(g_0-l+2)})].
-\end{align}
-The final term is
-\begin{align}
-    &1-\avg{n_0}_l=1-\frac{l}{g_0}\qty[1-\frac{g_1}{g_0-l+1}e^{-\beta\Delta_0}-\frac{g_1(g_0-l+1)(g_1+l-1)+g_1^2l}{(g_0-l+1)^2(g_0-l+2)}e^{-2\beta\Delta_0}]\nonumber\\
-    &=\frac{g_0-l}{g_0}\qty[1-\frac{g_1l}{g_0-l+1}e^{-\beta\Delta_0}-\frac{lg_0g_1(g_0-l+1)(g_1+l-1)+g_1^2l^2}{(g_0-l)(g_0-l+1)^2(g_0-l+2)}e^{-2\beta\Delta_0}].
-\end{align}
-So the whole thing becomes 
-\begin{align}
-    &e^{-\beta^*\Delta_0}=\frac{g_0-l}{g_0}\qty(1+\frac{g_1l}{(g_0-l)(g_0-l+1)}e^{-\beta\Delta_0})\frac{g_0}{g_0-l+1}\nonumber\\
-    &\quad\times e^{-\beta\Delta_0}\qty[1+\frac{(g_0-l+1)-g_1l+g_1+g_0}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0}]\nonumber\\
-    &\quad=\frac{g_0-l}{g_0-l+1}e^{-\beta\Delta_0}\Biggr(1+\frac{g_1l}{(g_0-l)(g_0-l+1)}e^{-\beta\Delta_0}\nonumber\\
-    &\quad\quad +\frac{(g_0-l+1)-g_1l+g_1+g_0}{(g_0-l+1)(g_0-l+2)}e^{-\beta\Delta_0}\Biggr).
+&\frac{d}{d\beta^*} \qty{\frac{d \chi^2}{d\beta^*}} = \frac{\partial }{\partial \beta^*} \eval{\qty{\frac{d \chi^2}{d\beta^*}}}_y+ \frac{\partial }{\partial y} \eval{\qty{\frac{d \chi^2}{d\beta^*}}}_{\beta^*} C_1\nonumber\\
+&\quad=2\sum_i\qty{(\epsilon_i-C_1)^2[(p_i-\avg{n_c}_i)p_iq_i(q_i-p_i)+p_i^2q_i^2]+(p_i-\avg{n_c}_i)p_iq_i(C_1C_3+C_2)}
 \end{align}

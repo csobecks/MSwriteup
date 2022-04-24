@@ -23,7 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TO DO: FILL IN YOUR INFORMATION BELOW - READ THIS SECTION CAREFULLY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Low Temperature Thermometry}	       % title of thesis/dissertation
+\title{Thermometry of Non-Interacting Ultracold Fermi Gases}	       % title of thesis/dissertation
 \author{Casey Sobecks}                % author's name
 \copyrightYear{2022}            % copyright year of your thesis/dissertation
 \graduationMonth{May}           % month of graduation of your thesis/dissertation
@@ -63,7 +63,7 @@
 
 \setlength{\marginparwidth}{1.9cm}
 \usepackage[textsize=tiny]{todonotes}
-
+\newcommand{\hatem}[1]{ \textcolor[rgb]{0,0,1}{#1}}
 \newcommand{\avg}[1]{\left<{#1}\right>}
 %%% PACKAGES THAT ARE PRELOADED WITH THE CLASS ARE: amsmath,amsthm,amssymb,setspace,geometry,hyperref,and color
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,17 +123,16 @@
     % BIBLIOGRAPHY
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \makeBibliographyPage % make the bibliography title page - can be edited in ut-thesis-template.tex
-    \bibliographystyle{abbrv} % bibliography style - recommend using apalike-doi as it hyperlinks DOIs
+    \bibliographystyle{ieeetr} % bibliography style - recommend using apalike-doi as it hyperlinks DOIs
     \bibliography{references/references-dissertation.bib} % references.bib included in the references directory
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % APPENDIX - OPTIONAL - COMMENT IF NOT NEEDED
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \makeAppendixPage   % make the appendix title page - can be edited in ut-thesis-template.tex
     \appendix
-    \include{back-matter/appendix-3}
-    \include{back-matter/appendix-4}
     \include{back-matter/appendix-1}
     \include{back-matter/appendix-2}
+    \include{back-matter/appendix-3}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % A VITA IS REQUIRED
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

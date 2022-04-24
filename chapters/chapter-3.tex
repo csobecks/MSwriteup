@@ -1,9 +1,10 @@
 \chapter{Results}\label{ch:cfd}
 \begin{em}
-Intro
+The method of using the Poisson binomial recursion was worked out in the previous section. Now it can be implemented for various spectra. First, this method will be checked against Sch\"onhammer's exact solution for the linear energy spectrum. After proving that the two methods agree, the error in temperature measurement will be checked against the theoretical equations for nondegenerate, filled degenerate, and partially filled degenerate spectra. Finally, this method will be used on a two dimensional spectrum. 
 \end{em}
+
 \section{Benchmarking}
-To check my method, the results can be benchmarked against a known solution. For this, we turn to Sch\"onhammer's solution for the 1D linear harmonic oscillator. This was previously considered in Section 1.4 and has an exact solution given by equations (1.31) and (1.32). Applying my method, the results can be plotted on top of the exact solution as shown in Fig. (3.1). It is more useful to show the difference as seen in Fig. (3.2). 
+To check the method using the Poisson binomial recursion relation, the results can be benchmarked against a known solution. For this, we turn to Sch\"onhammer's solution for the 1D linear harmonic oscillator. This was previously considered in Section 1.4 and has an exact solution given by equations (1.30) and (1.31). Applying the poisson binomial recursion, the results can be plotted on top of the exact solution as shown in Fig. (3.1). It is more useful to show the difference as seen in Fig. (3.2). 
 
 There are two important parts of Fig. (3.2) that are worth noting. The first is the scale of the y-axis. This is the difference between the Sch\"onhammer's exact solution and the program solution. The range of $10^{-8}$ is important to note because this was the precision parameter that was set in the code. If a higher level of accuracy is required in this calculation, the precision can easily be changed.  
 
@@ -34,7 +35,7 @@ where $N$ is the number of particles in the system. In the previous section, the
 \end{figure}
 
 \section{Numerical results of nondegenerate spectra}
-In this section, we will consider the case where our spectrum is nondegenerate. From the Section (1.3), we expect that the error of the temperature measurement $\beta^*$ in the grand canonical ensemble should reach $100\%$ once $\beta$ get sufficiently large enough. We also saw the same result in Section (2.5) when we set $g_0=g_1=g_{-1}=...=1$ in equation (2.66). Now I will show how the code reproduces these results. The two spectra I consider are the simple harmonic oscillator (linear spectrum) and the potential well spectrum (quadratic spectrum). The results of my program are shown in Figures (3.4) and (3.5) where the y-axis is $\frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}$. An interesting difference between the two figures is length of the x-axis. The linear spectrum reaches $100\%$ error slower than the quadratic error. This is due to the spacing between energy levels. For the linear spectrum, this spacing is constant, while the quadratic spectrum has a spacing that linearly increases. This means that more energy is required to fill the first excited state for the quadratic spectrum as the number of particles increases. The spacing term $\Delta_0$ will always increase, and thus the Boltzmann probability $e^{-\beta\Delta_0}$ that the state is occupied will continually decrease. For this reason, it's more difficult to calculate the error for linear spectra. 
+In this section, we will consider the case where our spectrum is nondegenerate. From the Section 1.4, we expect that the error of the temperature measurement $\beta^*$ in the grand canonical ensemble should reach $100\%$ once $\beta$ get sufficiently large enough. We also saw the same result in Section 2.5.1 when $g_0=g_1=g_{-1}=...=1$ in equation (2.36). Now I will show how the code reproduces these results. The two spectra I consider are the simple harmonic oscillator (linear spectrum) and the potential well spectrum (quadratic spectrum). The results of my program are shown in Figures (3.4) and (3.5) where the y-axis is $\frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}$. An interesting difference between the two figures is length of the x-axis. The linear spectrum reaches $100\%$ error slower than the quadratic error. This is due to the spacing between energy levels. For the linear spectrum, this spacing is constant, while the quadratic spectrum has a spacing that linearly increases. This means that more energy is required to fill the first excited state for the quadratic spectrum as the number of particles increases. The spacing term $\Delta_0$ will always increase, and thus the Boltzmann probability $e^{-\beta\Delta_0}$ that the state is occupied will continually decrease. For this reason, it's more difficult to calculate the error for linear spectra. 
 
 \begin{figure}[H]
     \centering
@@ -47,14 +48,13 @@ In this section, we will consider the case where our spectrum is nondegenerate. 
     \centering
     \includegraphics[scale=0.75]{figures/pdf/quadEnondeg.png}
     \caption{Error in $\beta^*$ measurement nondegenerate Quadratic Energy spectrum}
-    % \label{fig:Error in $\beta^*$ measurement nondegenerate Quadratic Energy spectrum}
 \end{figure}
 
 
 \section{Numerical results of degenerate spectra}
-In this section, we want to consider the spectra that are degenerate. Specifically, we want to verify the equations in Section (2.5). I will first consider the case where the Fermi level is filled and then consider the case of partial filling. Finally, I will provide a special case where the Fermi level is almost degenerate. 
+In this section, we want to consider the spectra that are degenerate. Specifically, we want to verify the equations in Section 2.5. I will first consider the case where the Fermi level is filled and then consider the case of partial filling. Finally, I will provide a special case where the Fermi level is almost degenerate. 
 \subsection{Filled Fermi Level}
-To start, the Linear energy spectrum is used. Equation (2.66) are plotted on top of the results of the program in Figure (3.6).  
+To start, the Linear energy spectrum is used. Equation (2.36) are plotted on top of the results of the program in Figure (3.6).  
 
 \begin{figure}[H]
     \centering
@@ -63,13 +63,13 @@ To start, the Linear energy spectrum is used. Equation (2.66) are plotted on top
     \label{fig:Filled}
 \end{figure}
 
-We can see that the error follows the theory once $\beta$ is sufficiently large enough. To further inspect this, I will rewrite Equation (2.66) in the following way. 
+We can see that the error follows the theory once $\beta$ is sufficiently large enough. To further inspect this, I will rewrite Equation (2.36) in the following way. 
 \begin{align}
-    \frac{\delta\beta}{\beta}&=1-\frac{\ln(g_0g_1)}{\Delta_0\beta}\\
-    \frac{\delta\beta}{\beta}-1&=-\frac{\ln(g_0g_1)}{\Delta_0\beta}\\
+    \frac{\delta\beta}{\beta}&=1-\frac{\ln(g_0g_1)}{\Delta_0\beta}\nonumber\\
+    \frac{\delta\beta}{\beta}-1&=-\frac{\ln(g_0g_1)}{\Delta_0\beta}\nonumber\\
     \beta\Delta_0-\delta\beta\Delta_0&=\ln(g_0g_1)
 \end{align}
-In this calculation, I have neglected the exponential term for convenience. Equation (3.4) is then plotted against the program as shown in Figure (3.7). 
+In this calculation, I have neglected the exponential term for convenience. Equation (3.2) is then plotted against the program as shown in Figure (3.7). 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.75]{figures/pdf/linE_N10_filled_g0-2_Δ0-1_1.png}
@@ -78,7 +78,7 @@ In this calculation, I have neglected the exponential term for convenience. Equa
 \end{figure}
 Again, we can see that at high enough $\beta$ the program aligns with the theory. 
 
-Now I will consider the filled degenerate quadratic energy spectrum. The analysis will be the same, so Equation (3.4) will still be used. The results of the program are shown in Figures (3.8) and (3.9). 
+Now I will consider the filled degenerate quadratic energy spectrum. The analysis will be the same, so Equation (3.2) will still be used. The results of the program are shown in Figures (3.8) and (3.9). 
 
 \begin{figure}[H]
     \centering
@@ -94,10 +94,10 @@ Now I will consider the filled degenerate quadratic energy spectrum. The analysi
     \label{fig:FilledDegenerate2}
 \end{figure}
 
-Again, we can see that the program follows the trend of the theory. One note should be made for the slight variation at $\beta$ values of 1.5 or higher. The deviation is due to the cutoff that is used to determine the correct $\beta^*$ from Equation (2.30). Overall, however, the theory and program agree very well for filled degenerate energy spectra.
+Again, we can see that the program follows the trend of the theory. One note should be made for the slight variation at $\beta$ values of 1.5 or higher. The deviation is due to the cutoff that is used to determine the correct $\beta^*$. Overall, however, the theory and program agree very well for filled degenerate energy spectra.
 
 \subsection{Partially Filled Degenerate Energy Spectra}
-Turning to the case of partial filling, we want to verify Equation (2.95). Again, I will start by considering the case of the simple harmonic oscillator first. The results are shown in Figure (3.10). 
+Turning to the case of partial filling, we want to verify Equation (2.48). Again, the simple harmonic oscillator will be considered first. The results are shown in Figure (3.10). 
 
 \begin{figure}[H]
     \centering
@@ -106,12 +106,12 @@ Turning to the case of partial filling, we want to verify Equation (2.95). Again
     \label{fig:PartiallyFilledDegenerateLinearSpectrum}
 \end{figure}
 
-We can see that there is pretty good agreement for large $\beta$ values. We can follow the same procedure as the filled spectrum and rewrite Equation(2.95).
+We can see that there is pretty good agreement for large $\beta$ values. We can follow the same procedure as the filled spectrum and rewrite Equation(2.48).
 \begin{align}
-    \frac{\delta\beta}{\beta}&=\frac{1}{\beta\Delta_0}\ln(\frac{g_0-l+1}{g_0-l})\\
-    \delta\beta \Delta_0&=\ln(\frac{g_0-l+1}{g_0-l})
+    \frac{\delta\beta}{\beta}&=\frac{1}{\beta\Delta_0}\ln(\frac{g_0-\ell+1}{g_0-\ell})\nonumber\\
+    \delta\beta \Delta_0&=\ln(\frac{g_0-\ell+1}{g_0-\ell})
 \end{align}
-Equation (3.6) can be plotted against the program data as seen in Figure (3.11). 
+Equation (3.3) can be plotted against the program data as seen in Figure (3.11). 
 
 \begin{figure}[H]
     \centering
@@ -137,9 +137,14 @@ We can see that the program is following the theory when $\beta$ is large enough
 
 The data follows the theory very will with the cutoff error still appearing after about $\beta=1$. Overall, the theory and data for the partially filled spectra agree very well. 
 \subsection{Almost Degenerate Energy Spectrum}
+
 For this section, I will consider the case where the spectrum is almost degenerate. From a theory standpoint, we expect that the error will follow the case of the partially filled theory until $\beta$ is large enough to break the pseudo-degeneracy. I will only consider the quadratic energy spectrum because the energy spacing will be large enough that any effects from this spectrum will be noticeable. 
 
 
 
 \section{Other spectra}  
 2D box trap with irrational ratio of lengths
+2D box trap with integer ratio
+2D box trap with with 1:1 ratio
+
+2D SHO traps?
