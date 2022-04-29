@@ -11,12 +11,19 @@ The Schr\"odinger equation then becomes
 \begin{equation}
     \frac{-\hbar^2}{2m}\frac{d^2 \psi}{dx^2} + V(x) \psi=E\psi
 \end{equation}
-In the following two sections, the Harmonic Oscillator and the Infinite Well will be considered following the work of Griffiths \cite{Griffiths}.
+In the following two sections, the harmonic oscillator and the infinite well will be considered following the work of Griffiths \cite{Griffiths}.
 \section{Harmonic Oscillator}
 The harmonic oscillator has a potential that is defined as 
 \begin{equation}
     V(x)=\frac{1}{2}m\omega^2 x^2
 \end{equation}
+which is shown in Fig.(\ref{fig:SHOpot}). 
+\begin{figure}
+    \centering
+    \includegraphics{figures/pdf/SHOpot.png}
+    \caption{Simple Harmonic Potential. Increases quadratically as $x$ moves away from 0.}
+    \label{fig:SHOpot}
+\end{figure}
 Plugging this into the Schr\"odinger equation yields
 \begin{equation}
     \frac{-\hbar^2}{2m}\frac{d^2}{dx^2}\psi+\frac{1}{2}m\omega^2 x^2\psi=E\psi
@@ -44,28 +51,28 @@ where the commutator $[x,p]=xp-px=i\hbar$ was used in the fourth line. $a_-a_+$ 
 Some properties of the ladder operators will help later calculations,
 \begin{gather}
     [a_-,a_+]=1\\
-    a_+\psi_n=\sqrt{n+1} \psi_{n+1}\\
-    a_-\psi_n=\sqrt{n}\psi_{n-1}\\
+    a_+\psi_i=\sqrt{i+1} \psi_{i+1}\\
+    a_-\psi_i=\sqrt{i}\psi_{i-1}\\
     a_-\psi_0=0
 \end{gather}
 Using the commutator between the two operators, the Hamiltonian can also be written as 
 \begin{equation}
     \mathcal{H}=\hbar\omega\qty(a_+a_-+\frac{1}{2})
 \end{equation}
-The energy spectrum can be calculated by finding the expectation value of this Hamiltonian. For convenience, let $\psi_n=\ket{n}$. This yields 
+The energy spectrum can be calculated by finding the expectation value of this Hamiltonian. For convenience, let $\psi_i=\ket{i}$. This yields 
 \begin{align}
-    E=\avg{\mathcal{H}}&=\braket{n|\mathcal{H}|n}=\braket{n|\hbar\omega (a_+a_-+\frac{1}{2})|n}\nonumber\\
-    &=\hbar\omega \braket{n|a_+a_-|n}+\frac{\hbar\omega}{2}\braket{n|n}\nonumber\\
-    &=\hbar\omega \sqrt{n}\braket{n|a_+|n-1}+\frac{\hbar\omega}{2}\nonumber\\
-    &=\hbar\omega n \braket{n|n}+\frac{\hbar\omega}{2}\nonumber\\
-    &=\hbar\omega n +\frac{\hbar\omega}{2}\nonumber\\
-    &=\hbar\omega(n+\frac{1}{2})
+    E=\avg{\mathcal{H}}&=\braket{i|\mathcal{H}|i}=\braket{i|\hbar\omega (a_+a_-+\frac{1}{2})|i}\nonumber\\
+    &=\hbar\omega \braket{i|a_+a_-|i}+\frac{\hbar\omega}{2}\braket{i|i}\nonumber\\
+    &=\hbar\omega \sqrt{i}\braket{i|a_+|i-1}+\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega i \braket{i|i}+\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega i +\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega(i+\frac{1}{2})
 \end{align}
-This is the equation for the energy spectrum of the simple harmonic oscillator. It is a linear equation in $n$, so it is called a linear energy spectrum. The energy spectrum can be seen in Figure (A.1).
-\begin{figure}
+where $i=0,1,2,3,...$. This is the equation for the energy spectrum of the simple harmonic oscillator. It is a linear equation in $i$, so it is called a linear energy spectrum. The energy spectrum can be seen in Fig. (\ref{fig:Simple Harmonic Oscillator Spectrum}).
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{figures/pdf/SHMspectrum.PNG}
-    \caption{Simple Harmonic Oscillator Spectrum}
+    \includegraphics[scale=1.0]{figures/pdf/SHOspectrum.png}
+    \caption{The energy spectrum of the simple harmonic oscillator. The spacing between energy levels is a constant $\hbar\omega$. For this reason it is called a linear spectrum.}
     \label{fig:Simple Harmonic Oscillator Spectrum}
 \end{figure}Throughout this paper, any reference to a linear energy spectrum is directly a reference to the energy spectrum of a simple harmonic oscillator.
 
@@ -76,14 +83,14 @@ The infinite square well is defined with a potential
                        \infty & \text{otherwise}
         \end{cases}
 \end{equation}
-Plotting this potential shows the "well" shape that gives this potential its name. This is shown in Figure (A.2).
-\begin{figure}
+Plotting this potential shows the "well" shape that gives this potential its name. This is shown in Fig. (\ref{fig: Infinite Well Potential}).
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{figures/pdf/infsqpot.PNG}
-    \caption{Infinite Well Potential}
+    \includegraphics[scale=0.75]{figures/pdf/sqwellpot.png}
+    \caption{Infinite Well Potential. This potential is zero between two endpoints and infinite everywhere else.}
     \label{fig: Infinite Well Potential}
 \end{figure}
-When plugging this potential into the Schr\"odinger equation, the only surviving part is when $V=0$. This means that there's one equation to solve with boundary conditions at $x=0,a$. Inserting the potential yields
+When plugging this potential into the Schr\"odinger equation, the only surviving part is when $V=0$. This means that there's one equation to solve with boundary conditions at $x=0$ and $x=a$. Inserting the potential yields
 \begin{align}
     -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}&=E\psi\nonumber\\
     \frac{d^2\psi}{dx^2}&=-\frac{2mE}{\hbar^2}\psi\nonumber\\
@@ -105,21 +112,21 @@ The other boundary condition gives
 \end{align}
 The trivial solution to this problem is $A=0$. This does not give any information about the energy spectrum, so instead consider the case where $A\neq 0$. This means that the $\sin(ka)$ term must be zero. This can only happen when $ka=n\pi$ where $n$ is an integer. Since $k$ is related to the energy, the spectrum can be found as
 \begin{align}
-    k=\frac{\sqrt{2mE}}{\hbar}&=\frac{n\pi}{a}\\
-    E&=\frac{1}{2m} \qty(\frac{\hbar n\pi}{a})^2 
+    k=\frac{\sqrt{2mE}}{\hbar}&=\frac{(i+1)\pi}{a}\\
+    E&=\frac{1}{2m} \qty(\frac{\hbar (i+1)\pi}{a})^2 \label{infsqE}
 \end{align}
-Since this equation is quadratic in $n$, it is called the quadratic energy spectrum. The spectrum is shown in Figure (A.3). Any reference to a quadratic spectrum in this paper is considering the energy spectrum in Equation (A.24)
-\begin{figure}
+where $i=0,1,2,3,...$. Since this equation is quadratic in $i$, it is called the quadratic energy spectrum. The spectrum is shown in Fig. (\ref{fig:Energy spectrum of the infinite square well}). Any reference to a quadratic spectrum in this paper is considering the energy spectrum in Eq.\@ (\ref{infsqE})
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{figures/pdf/infsqspec.PNG}
-    \caption{Energy spectrum of the infinite square well}
+    \includegraphics[scale=1.0]{figures/pdf/sqwellspec.png}
+    \caption{Energy spectrum of the infinite square well. The distance between levels increases linearly. For this reason it is called a quadratic spectrum}
     \label{fig:Energy spectrum of the infinite square well}
 \end{figure}
-Turning back to the wave function, the value for $k$ can be plugged back into the equation for $psi$ giving
+Turning back to the wave function, the value for $k$ can be plugged back into the equation for $\psi$ giving
 \begin{equation}
-    \psi(x)=A\sin(\frac{n\pi}{a}x).
+    \psi(x)=A\sin(\frac{(n+1)\pi}{a}x). \label{infsqwave}
 \end{equation}
-The term $A$ is a normalization constant that is found by solving $\int|\psi(x)|^2 dx$. Doing this gives $A=\sqrt{\frac{2}{a}}$ and Equation (A.25) becomes 
+The term $A$ is a normalization constant that is found by solving $\int|\psi(x)|^2 dx$. Doing this gives $A=\sqrt{\frac{2}{a}}$ and Eq. (\ref{infsqwave}) becomes 
 \begin{equation}
-    \psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi}{a}x).
+    \psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{(n+1)\pi}{a}x).
 \end{equation}

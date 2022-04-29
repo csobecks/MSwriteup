@@ -1,202 +1,208 @@
 \chapter{Introduction} \label{ch:introduction}
 \section{Statistical Physics}
-Statistical physics is a field of study with its roots in thermodynamics. The initial goal was to understand the thermal properties of matter and the behavior of gases \cite{Kardar}. It has been studied since the 1600's with contributions coming from such prominent physicists as Bernoulli, Maxwell, and Boltzmann \cite{Flamm1998}. The initial studies of the topic have revolved around the understanding of heat processes and engines. These are systems that contain moles of particles interacting with their environment, like heat reservoirs. As technology increased, scientists began to test these statistical theories at lower and lower temperatures. Eventually, the discovery of phenomena such as superconductivity and superfluidity led to the necessity for a new theoretical picture in order to describe the underlying physics. The theory of Quantum mechanics explain these phenomena with the help of statistical mechanics. Experimentalists are now at the point where temperatures as low as micro Kelvin are used in experiments \cite{Onofrio2016, Es2010,Bhar}. This technology has given rise to the study of atoms in cold and ultra cold environments. These experiments are perfect testing grounds for some of the fundamental quantum mechanical problems that show up in undergraduate and graduate textbooks. 
+Statistical physics is a field of study with its roots in thermodynamics. The initial goal was to understand the thermal properties of matter and the behavior of gases \cite{Kardar}. It has been studied since the 1600's with contributions coming from such prominent physicists as Bernoulli, Maxwell, and Boltzmann \cite{Flamm1998}. Initial studies of the topic  revolved around the understanding of heat processes and engines. These are systems that contain moles of particles interacting with their environment, like heat reservoirs. As technology increased, scientists began to test these statistical theories at lower and lower temperatures. Eventually, the discovery of phenomena such as superconductivity and superfluidity led to the necessity of a new theoretical picture in order to describe the underlying physics. The theory of quantum mechanics explains these phenomena with the help of statistical mechanics. Experimentalists are now at the point where temperatures as low as micro Kelvin are used in experiments \cite{Onofrio2016, Es2010,Bhar}. This technology has given rise to the study of atoms in cold and ultra cold environments. These experiments are perfect testing grounds for some of the fundamental quantum mechanical problems that show up in undergraduate and graduate textbooks. 
 
 \section{Quantum Mechanical Traps}
-Before discussing any cold atom experiments, it's necessary to solve the Schr\"odinger for the harmonic oscillator and infinite potential well. The energy eigenvalues are calculated in Appendix A with help from Griffiths \cite{Griffiths}. These eigenvalues give the linear spectrum 
+In cold atom experiments, cold atomic clouds are placed into a region containing a potential \cite{Bhar}. To understand how these clouds behave, it's necessary to look at some of the potentials that are applied in these experiments. Two example potentials are the harmonic oscillator and the infinite potential well. The energy eigenvalues can be found by solving the Schr\"odinger which is shown in Appendix A. These eigenvalues give the linear spectrum 
 \begin{equation}
-    E_n=\hbar\omega\qty(n+\frac{1}{2})
+    E_i=\hbar\omega\qty(i+\frac{1}{2}) \label{SHOpot}
 \end{equation}
-for the simple harmonic oscillator and the quadratic equation 
+for the simple harmonic oscillator and quadratic equation 
 \begin{equation}
-    E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}
+    E_i=\frac{(i+1)^2\pi^2\hbar^2}{2ma^2} \label{quadpot}
 \end{equation}
-for the infinite potential well, where $a$ is the length of the well. The term $n$ is an integer that identifies the modes of the wave function. This can be seen by from Equation (A.26), the equation for the wave function describing a particle in the infinite square well,
-\begin{equation*}
-    \psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi}{a}x).
-\end{equation*}
-For the simple harmonic oscillator, $n=0,1,2,...$. For the infinite square well $n=1,2,3...$. 
+for the infinite potential well, where $a$ is the length of the well and $i=0,1,2,3,...$. The term $i$ is a positive integer that identifies allowed energy levels to solve the Schr\"odinger equation for the two potentials mentioned.
 
-In cold atom experiments, cold atomic clouds of a single particle are placed into a region containing a potential \cite{Bhar}. Since these gases are a single particle, they are identical. The density of the gas is typically around $10^5 \text{cm}^{-3}$ \cite{Viering} but can get as high as $10^{12} \text{cm}^{-3}$ \cite{Radwell}. Comparing this to a mole of atoms, or $10^{23}$ atoms, the experimental cold atomic cloud has a low density. Since it is low density, the only interactions in the gas will be from scattering, so the particles can be considered non-interacting. With these qualities, the only thing left to choose is the potential. In many experiments, the simple harmonic oscillator potential can be realized with a magneto-optical trap \cite{Radwell,Phillips_1998,Viering,Bhar}. The development of this method won the Nobel prize in 1997 for its impact on the physics community \cite{nobelprize.org_1997}. More recently, the potential well has been realized by transferring atoms onto an atomic chip \cite{Es2010}. There are other traps that consist of more exotic shapes, like a trap that is a box in two plane (say the x-z and x-y planes) and circular in the other (say the x-y plane) \cite{Mukherjee2017}. 
+Since these gases are composed of a single atomic species, either bosons or fermions, they are identical. 
+The density of the gas is typically around $10^5 \text{cm}^{-3}$ \cite{Viering} but can get as high as $10^{12} \text{cm}^{-3}$ \cite{Radwell}. 
+Being neutral atoms, the only interaction to worry about is the Van der Waals force. 
+This force is typically present at length scales of Angstroms ($10^{-10}$m) \cite{biochem}. 
+Specifically for Potassium and Rubidium, the length scale is $3.13\rm \AA$ \cite{Pot} and $4.48\rm \AA$ \cite{Rub} respectively. 
+Using the two values above as the range, the mean interparticle distance is between $\qty(\frac{1}{10^5})^{1/3}\approx 2.15$mm and $\qty(\frac{1}{10^{12}})^{1/3}\approx 10 \mu$m. With these values, the Lennard-Jones potential can be found for each. For Potassium, this value is $U\approx-5.298\times 10^{-43}$eV for an interparticle distance of $2.15$mm and $U\approx-5.233\times 10^{-29}$eV for an interparticle distance of $10 \mu$m. Likewise for Rubidium, $U\approx-1.1088\times 10^{-41}$eV for an interparticle distance of $2.15$mm and $U\approx-1.095\times 10^{-27}$eV for an interparticle distance of $10 \mu$m. In Viering's Rubidium experiment, a linear spectrum was created with a gap size of $\hbar\omega\approx 4.136\times 10^{-12}$eV \cite{Viering}. This gap size is much larger than the possible values of the Lennard-Jones potential for Rubidium. 
 
-After these atoms are placed into the trap, they are measured using the time of flight (TOF) method. To summarize this method, the atoms are released and the velocity distribution of the trapped atoms is measured \cite{Brzozowski,Wheeler_2003}. Using the velocity distribution and assuming that the the cold atom cloud is pherically symmetric and Gaussian, the probability distribution of the experiment can be calculated \cite{Brzozowski}. To find the temperature of these distributions, experimentalists use statistical mechanics to fit the data to an ensemble. 
+This shows that even if two particles were to interact via van der Waals, there is not enough force to change the energy state of either interacting particle. For this reason, it is acceptable to consider these gases as non-interacting. 
+The non-interaction restriction is essential because it allows for the use of the single particle spectra that are considered in Eqs.\@ (\ref{SHOpot}) and (\ref{quadpot}). 
+If interactions are considered, the Hamiltonians used to derive Eqs.\@ (\ref{SHOpot}) and (\ref{quadpot}) will change. 
+This will require the new Hamiltonians to be rediagonalized. 
+This is not something realistic to calculate for these cold atom systems because their Hilbert space is infinite. 
+In many experiments, the simple harmonic oscillator potential can be realized with a magneto-optical trap \cite{Bhar, Viering, Radwell,Phillips_1998}. 
+The development of this method won the Nobel prize in 1997 for its impact on the physics community \cite{nobelprize.org_1997}. 
+More recently, the potential well has been realized by transferring atoms onto an atomic chip \cite{Es2010}. 
+There are other traps that consist of more exotic shapes, like a trap that is a box in two dimensions (say the x-z and x-y planes) and circular in the other (say the x-y plane) \cite{Mukherjee2017}. 
+After these atoms are placed into the trap, they can be probed using the time of flight (TOF) method. To summarize this method, the atoms are released from the trap by turning it off and the velocity distribution of the trapped atoms is measured \cite{Brzozowski,Wheeler_2003}. This probability distribution of velocities is utilized to extract the single particle occupation numbers, i.e. the number of particles in each energy state $i$ as described above. Then to find the temperature of these distributions, experimentalists use statistical mechanics to fit the data to a prediction from a statistical ensemble. This procedure is essential to extracting the temperature at these ultra-low densities since conventional thermometry, which requires interactions, is not possible. 
 
 
 \section{Ensemble Theory for Non-interacting Identical Particles}
-Statistical mechanics provides a more fundamental derivation of the thermodynamic properties of a system by examining the dynamics of the individual particles composing the system \cite{Kardar}. For a large system of particles, this introduces many degrees of freedom, so the states of the system are described in the context of ensembles. An ensemble is a grouping of microstates that correspond to a mixed macrostate \cite{Kardar}. A microstate is a particular configuration of particles in the system. For example, if a box has two coins in it, shaking the box can only produce four states, $(H,H),(H,T),(T,H),(T,T)$ \cite{Blundell}. These are the microstates of the system. A macrostate is the collection of all systems that give a specific equilibrium condition. Going back to the coin example, there are three macrostates, both heads, both tails, and a head and a tail. The last macrostate consists of the two microstates $(H,T)$ and $(T,H)$ since they each contain a head and a tail. These macrostates can then be analyzed as an ensemble. There are three ensembles that are used in statistical mechanics, the microcanonical, canonical, and grand canonical ensembles. The microcanonical ensemble describes a system that is mechanically and adiabatically isolated \cite{Kardar}. This means the system is disconnected from any sort of heat or work that could be applied or drawn from the system. Since there's no input or output, the internal energy of the system is fixed and as a result, the equilibrium temperature is also fixed. 
-The canonical ensemble describes a system that allows heat and work to be an input in the system. This ensemble is usually modelled as a system that's in contact with a reservoir that's large enough so that interactions between the two do not effect the reservoir's temperature. 
+The thermodynamic properties of a cold atomic cloud can be derived using statistical mechanics. For a large system of particles, this introduces many degrees of freedom, so the states of the system are described in the context of ensembles. 
+An ensemble is a grouping of microstates that corresponds to a mixed macrostate \cite{Kardar}. A microstate is a particular configuration of particles in the system. For example, if a box has two coins in it, shaking the box can only produce four states, $(H,H),(H,T),(T,H),(T,T)$ \cite{Blundell}. These are the microstates of the system.
+A macrostate is the collection of all microstates that give a specific equilibrium condition. Going back to the coin example, there are three macrostates, both heads, both tails, and a head and a tail. The last macrostate consists of the two microstates $(H,T)$ and $(T,H)$ since they each contain a head and a tail. These macrostates can then be analyzed as an ensemble. 
+
+There are three ensembles that are used in statistical mechanics, the microcanonical, canonical, and grand canonical ensembles. The microcanonical ensemble describes a system that is mechanically and adiabatically isolated \cite{Kardar}. This means the system is disconnected from any sort of heat or work that could be applied or extracted. Since there's no input or output, the internal energy is fixed and as a result, the equilibrium temperature is also fixed. 
+The canonical ensemble describes a system that allows heat and work to be an input. This ensemble is usually modelled as a system that is in contact with a reservoir that's large enough  that interactions between the two do not affect the reservoir's temperature. 
 The grand canonical ensemble is similar to the canonical ensemble except now it allows chemical work to be done. In the language of thermodynamics, the chemical potential $\mu$ is defined as 
 \begin{equation*}
-    \bold{N}\cdot d\mu+S dT+\bold{x}\cdot d\bold{J}=0
+    \mu=\qty(\frac{\partial U}{\partial N})_{S,V}
 \end{equation*}
-where $S$ is the entropy, $T$ is the temperature, $\bold{x}$ is a set of displacements, and $\bold{J}$ is external generalized forces applied on the system \cite{Kardar}. The term $\bold{N}$ specifies the number of particles of each type \cite{Kardar}. For identical particles, there is just one type, so this can just be written as $N$. The chemical potential is needed because it allows for the change in number of particles in the system. An example of this would be trying to describe heating a classroom. In this system, the number of particles is allowed to vary, like particles leaving and entering through the door of the classroom. In this scenario, it is appropriate to find the equilibrium temperature by using the grand canonical ensemble to account for the change in particle number. Since the exact number of particles changes at any point in time, it makes more sense instead to describe the average number of particles $\avg{N}$ in the system. When working with the canonical and grand canonical ensemble, it is also necessary to 
-define a normalization factor for the Boltzmann probabilities that show up. This normalization factor is called that partition function which is a function of thermodynamic state variables that is defined as a sum over all the state of Boltzmann factors \cite{Blundell}. In other words, it is a Boltzmann distributions that is related to thermodynamic variables such as temperature. This function is used to derive thermodynamical properties of the system, like specific heat and internal energy.
+where $U$ is the internal energy, $N$ is the particle number, $S$ is the entropy, and $V$ is the volume. The subscript $S$ and $V$ state that the entropy and the volume of the system are held constant \cite{Blundell}. This gives the chemical potential as the change in energy with respect to the number of particles present. The chemical potential is needed because it allows for the change in number of particles in the system. 
 
-To calculate the partition function, an ideal quantum gas of non-interacting identical particles will be considered. This type of system is of interest because the cold atoms experiments mentioned in the previous section consist of a gas of identical particles. The non-interacting piece is valid because, in general, the particle density is very low in these experiments. With such a low density, the neutral atoms will only interact via Van Der Waals interactions, which decay as $\frac{-1}{r^6}$ \cite{Kardar,Lebellac}. The only interactions in the system would be due to particle collision which, at low density, are negligible. The non-interaction restriction is also essential because it allows for the use of the single particle spectra that are considered in Equations (1.1) and (1.2). If interactions are considered, the Hamiltonians used to derive Equations (1.1) and (1.2) will change. This will require the new Hamiltonians to be rediagonalized. This is not something realistic to calculate for these cold atom systems because their Hilbert space is infinte, so their Hamiltonian is represented by an infinite matrix. 
-With this motivation, the first partition function of interest to look at is the canonical partition function. This function is written as 
+An example of this would be trying to describe heating a classroom. In this case, the number of particles is allowed to vary, like particles leaving and entering through the door of the classroom. In this scenario, it is appropriate to find the equilibrium temperature by using the grand canonical ensemble to account for the change in particle number. Since the exact number of particles changes at any point in time, it makes more sense instead to describe the average number of particles $\avg{N}$. 
 
+When working with the canonical and grand canonical ensemble, it is also necessary to 
+define a normalization factor for the Boltzmann probabilities that show up. This normalization factor is called the partition function, which is a function of thermodynamic state variables that is defined as a sum over all the states of Boltzmann factors \cite{Blundell}. In other words, it is a Boltzmann distribution that is related to thermodynamic variables such as temperature. This function is used to derive thermodynamical properties of the system, like specific heat and internal energy. 
+To calculate the partition function, an ideal quantum gas of non-interacting identical particles will be considered. This will allow for a theoretical analysis of the cold atom clouds that were considered in the previous section. With this motivation, we begin with an analysis of the canonical ensemble. The partition function in the canonical ensemble is written as
 \begin{equation}
     Z_N=\sum_{\{n_i\}}^{'} \exp\qty[-\beta\sum_{i} \epsilon_i n_i]=\sum_{\{n_i\}}^{'} \prod_i \exp\qty[-\beta\epsilon_i n_i]
 \end{equation}
-where $\beta=\frac{1}{k_B T}$ is the inverse temperature with the boltzmann constant $k_B$ and $\epsilon_i$ is the single particle energy spectrum \cite{Kardar}. The $\{n_i\}$ term is the set of all the occupation numbers of the allowed values of $i$. This term is restricted in the canonical ensemble since this ensemble has exactly $N$ particles. To account for this restriction, some care must be taken in counting the ways to get $N$ particles. This is done by the use of the primed summation of Equation (1.3). Specifically, the primed summation indicates that 
-\begin{equation}
-    \sum_i n_i=N
+'
+
+
+
+
+\begin{equation}  
+    \sum_i n_i=N.
 \end{equation}
-where $n_i$ is either zero or one for fermions. This constraint makes the summation very difficult to calculate since there are many ways to select states to get an specific value of $N$. To remove this restriction, the grand canonical ensemble can be employed. The grand canonical partition function is written as 
+
+\textbf{In this project, we will only consider systems of ultracold fermions where the number of particles that can occupy a given single-particle state is restricted to $\bold{n_i=\{0,1\}}$ due to the Pauli exclusion principle. This fermionic constraint will be assumed in all expressions.} 
+This constraint makes the summation very difficult to calculate since there are many ways to select microstates (occupation states of particles) to get an specific value of $N$. To remove this restriction, the grand canonical ensemble can be employed. The grand canonical partition function is written as 
 \begin{align}
     Z_{GC}&\equiv\sum_{N=0}^{\infty} \exp(\beta\mu N) \sum_{\{n_i\}}^{'} \prod_i \exp\qty[-\beta\epsilon_i n_i]\nonumber\\
     &=\sum_{N=0}^{\infty}\sum_{\{n_i\}}^{'} \exp(\beta\mu N) \prod_i \exp\qty[-\beta\epsilon_i n_i]\nonumber\\
     &=\sum_{\{n_i\}} \prod_i \exp(\beta\mu n_i) \exp\qty[-\beta\epsilon_i n_i]\nonumber\\
-    &=\sum_{\{n_i\}} \prod_i \exp\qty[-\beta\qty(\epsilon_i-\mu)n_i]\\
+    &=\sum_{\{n_i\}} \prod_i \exp\qty[-\beta\qty(\epsilon_i-\mu)n_i]
 \end{align}
-where the removal of the prime in the summation over $\{n_i\}$ indicates that there is no restriction on the value of $N$. The first line of the steps above can be rewritten to equate the canonical ensemble to the grand canonical ensemble as
+where the removal of the prime in the summation over $\{n_i\}$ indicates that there is no restriction on the value of $N$ after the application of the infinite sum over the number of particles. The first line of the steps above can be rewritten to relate the canonical ensemble to the grand canonical ensemble as
 \begin{equation}
-    Z_{GC}=\sum_{N=0}^{\infty} e^{\beta\mu N} Z_N
+    Z_{GC}=\sum_{N=0}^{\infty} e^{\beta\mu N} Z_N.
 \end{equation}
- The important step here is the inclusion of the chemical potential. The summation over the chemical potential term considers $N$ particles ranging from zero to infinity. This fixes the problem with the restricted summation in the canonical ensemble, which is going over all possible configurations to get $N$ particles. With inclusion of the infinite sum, $N$ can take any value, so the primed summation also becomes an infinite sum. The two exponential terms can be simplified and the grand canonical partition function is written as 
+ The important step here is the inclusion of the chemical potential. The summation over the chemical potential term considers $N$ particles ranging from zero to infinity. This fixes the problem with the restricted summation in the canonical ensemble, which is going over all possible configurations to get $N$ particles. With the inclusion of the infinite sum, $N$ can take any value, so the primed summation becomes unrestricted. The two exponential terms can be simplified and the grand canonical partition function is written as 
 \begin{equation}
-    Z_{GC}=\sum_{\{n_i\}} \prod_i \exp\qty[-\beta\qty(\epsilon_i-\mu)n_i]
+    Z_{GC}=\sum_{\{n_i\}} \prod_i \exp\qty[-\beta\qty(\epsilon_i-\mu)n_i] \label{ZGC}
 \end{equation}
-The equation can be solved for the case of fermions since there are only two allowed values for $n_{i}$. This gives the partition function as 
+and for fermions, we can explicitly perform the sum over the two possible occupations $n_i=\{0,1\}$ to yield:
 \begin{equation}
-    Z_{GC}=\prod_{i}\qty[1+\exp(-\beta\qty(\epsilon_i-\mu))].
+    Z_{GC}=\prod_{i}\qty[1+\exp(-\beta\qty(\epsilon_i-\mu))]. \label{ZGCferm}
 \end{equation}
-Using this partition function, the occupation probability is written as the joint probabilitie for all the different one particle states within the system. Since the particles are non-interacting, the one particle states are independently occupied, so the joint probability is 
+To make connection with experimental time of flight measurements of the single particle occupation numbers, we consider the mean number of particles in the grand canonical ensemble. Using Eq.\@ (\ref{ZGC}), this is 
 \begin{align}
-    \avg{p_i}&=\frac{1}{Z_{GC}} \prod_i \exp\qty(-\beta\qty(\epsilon_i-\mu)n_i)
+    \avg{n_i}_{GC}&=\frac{\sum_{\{n_j\}} n_i \prod_j \exp(-\beta n_j(\epsilon_j-\mu))}{Z_{GC}}\nonumber\\
+    &=\frac{-1}{Z_{GC}}\frac{\partial Z_{GC}}{\partial (\beta\epsilon_i)}\nonumber\\
+    &=-\frac{\partial \ln(Z_{GC})}{\partial (\beta \epsilon_i)}. \label{avgnum}
 \end{align}
-where the partition function is the normalization term, as mentioned previously. For fermions, the $n_i$ term is either zero or one. A value of one would indicate that the state is occupied, so $\avg{p_i}_{n_i=1}\equiv p_i$ is the grand canonical occupation probability. A value of zero would indicate that the state is unoccupied, so $\avg{p_i}_{n_i=0}\equiv q_i$ is the complementary grand canonical occupation probability. Using this definition, $p_i$ is found to be 
+Using Eq.\@ (\ref{avgnum}), this can be solved to find 
 \begin{align}
-    p_i &=\frac{1}{Z_{GC}}\prod_i \exp\qty(-\beta\qty(\epsilon_i-\mu))\nonumber\\
-    &=\frac{\prod_i \exp\qty(-\beta\qty(\epsilon_i-\mu))}{\prod_{i'}(1+\exp(-\beta\qty(\epsilon_{i'}-\mu)))}\nonumber\\
-    &=\prod_i \frac{\exp\qty(-\beta\qty(\epsilon_i-\mu))}{1+\exp(-\beta\qty(\epsilon_i-\mu))}\nonumber\\
-    &=\prod_i\frac{1}{1+\exp(\beta(\epsilon_i-\mu))}.
+    \avg{n_i}_{GC}&=-\frac{\partial}{\partial (\beta\epsilon_i)} \sum_i \qty[1+\exp(-\beta\qty(\epsilon_i-\mu))]\nonumber\\
+    &=\frac{\exp(\beta(\mu-\epsilon_i))}{1+\exp(\beta(\mu-\epsilon_i))}\nonumber\\
+    &=\frac{1}{1+\exp(-\beta(\mu-\epsilon_i))}. \label{GCoccprob}
 \end{align}
-It's important to note that this definition of the occupation probability is only for non-interacting fermions. Using Equation (1.11), the grand canonical partition function can be rewritten as 
+This equation can be used to define the complement as
 \begin{equation}
-    Z_{GC}=\prod_{i}\qty[1+\exp(-\beta\qty(\epsilon_i-\mu))]=\prod_i\frac{1}{1-p_i}=\prod_i \frac{1}{q_i}.
+    \avg{\Bar{n}_i}=1-\avg{n_i}_{GC}=\frac{1}{1+\exp(-\beta(\epsilon_i-\mu))}. \label{GCcomplement}
 \end{equation}
-The benefit of using the grand canonical ensemble is shown in this equation. For non-interacting fermions, the grand canonical partition function can be found from a simple product that has no restrictions, while the canonical ensemble requires that the particle number condition be met. As previously mentioned, the probability distributions are what is measured in cold atom experiments. To extract temperature from the probability distribution, it is easy to fit the data to Equation (1.11) and solve for $\beta$. Further, the data can be used to find the grand canonical partition function which can be used to find other thermodynamic properties of the system, like internal energy or specific heat. In the thermodynamic limit, that is when the number of particles is large, the two ensembles are equivalent so there is no error in fitting the data to the grand canonical ensemble.However, in the cold atom experiments that are considered in Section 1.2, the conditions for the thermodynamic limit are not met as the number of particles in the system is low and has a fixed value. Therefore, the correct ensemble to use is the canonical as it describes a system with a fixed number of particles. To understand the error in the use of the grand canonical ensemble to describe a canonical system, it is beneficial to consider a simple example. 
+We recognize this as the same as the term inside the product of Eq.\@ (\ref{ZGCferm}) which allows it to be written as 
+\begin{equation}
+    Z_{GC}=\prod_i \frac{1}{\avg{\Bar{n}_i}}. \label{GCq}
+\end{equation}
+
+The benefit of using the grand canonical ensemble is shown in this equation. 
+For non-interacting fermions, the grand canonical partition function can be found from a simple product that has no restrictions with the average number of particles being enforced by the chemical potential, while the canonical ensemble requires that the particle number condition be met. 
+As previously mentioned, the probability distributions are calculated from the velocity distribution measured from the TOF in cold atom experiments. To extract temperature from the probability distribution, it is easy to fit the data to Eq.\@ (\ref{GCcomplement}) and extract $\beta$ and a formally unphysical value of $\mu$. Further, the data can be used to find the grand canonical partition function which can be used to find other thermodynamic properties of the system, like internal energy or specific heat. In the thermodynamic limit, that is when the number of particles is large. The two ensembles are equivalent so there is no error in fitting the data to the grand canonical ensemble. 
+However, in the latest generation of cold atom experiments that are considered in Section 1.2, the conditions for the thermodynamic limit are not met as the number of particles in the system could be on the order of $10^{4}-10^{5}$ and has a fixed value. Therefore, the correct ensemble to use is the canonical as it describes a system with a fixed number of particles. To understand the error in the common use of the grand canonical ensemble to describe a canonical system, we begin by considering a simple example. 
 
 
 \section{Simple Example}
-Away from the thermodynamic limit, the grand canonical ensemble does not accurately describe canonical ensemble systems. To quantify the error in using the grand canonical to approximate the canonical, it is useful to look for a worst case scenario. This will be explored in the following simple example provided. Specifically, the inverse temperature $\beta$ will be calculated in each of the ensembles to determine the difference in the measurement. Consider a system with two energy levels, $\epsilon_1=0$ and $\epsilon_2=\Delta$ and one fermion. In the single particle canonical ensemble, the occupation probability of a single level is given by
+Away from the thermodynamic limit, the grand canonical ensemble does not accurately describe canonical ensemble systems. To quantify the error in using the grand canonical to approximate the canonical, it is useful to look for a worst case scenario.
+Specifically, the inverse temperature $\beta$ will be calculated in each of the ensembles to determine the difference in the measurement. Consider a system with two energy levels, $\epsilon_1=0$ and $\epsilon_2=\Delta$ and one fermion such that $N=1$. In the single particle canonical ensemble, the occupation probability of a single level is given by
 \begin{equation}
-    \avg{n_i}=\frac{e^{-\beta\epsilon_i}}{\sum_i e^{-\beta\epsilon_i}}
+    \avg{n_i}_C=\frac{e^{-\beta\epsilon_i}}{\sum_i e^{-\beta\epsilon_i}}
 \end{equation}
-where $\avg{n_i}$ denotes the occupation probability for the canonical ensemble. 
-For the case of two energy levels, the probabilities are the following.
+where $\avg{n_i}$ denotes the occupation probability for the canonical ensemble \cite{Kardar}. 
+For the case of two energy levels, the probabilities are 
 \begin{gather}
-    \avg{n_1}=\frac{1}{1+e^{-\beta\Delta}}\\
-    \avg{n_2}=\frac{e^{-\beta\Delta}}{1+e^{-\beta\Delta}}.
+    \avg{n_1}_C=\frac{1}{1+e^{-\beta\Delta}}\\
+    \avg{n_2}_C=\frac{e^{-\beta\Delta}}{1+e^{-\beta\Delta}}.
 \end{gather}
 In the grand canonical ensemble, the occupation probability of each energy level is given by 
 \begin{equation}
-    \avg{p_i}=\frac{1}{1+e^{\beta(\epsilon_i-\mu)}}=\frac{e^{-\beta(\epsilon_i-\mu )}}{1+e^{-\beta(\epsilon_i-\mu)}}.
+    \avg{n_i}_{GC}=\frac{1}{1+e^{\beta(\epsilon_i-\mu)}}=\frac{e^{-\beta(\epsilon_i-\mu )}}{1+e^{-\beta(\epsilon_i-\mu)}}. \label{GCoccprobab}
 \end{equation}
-The occupation probabilities for this system are 
+The occupation probabilities for this system thus 
 \begin{gather}
-    \avg{p_1}=\frac{e^{\beta\mu}}{1+e^{\beta\mu}}=\frac{1}{1+e^{-\beta\mu}}\\
-    \avg{p_2}=\frac{e^{-\beta(\Delta-\mu)}}{1+ e^{-\beta(\Delta-\mu)}}.
+    \avg{n_1}_{GC}=\frac{e^{\beta\mu}}{1+e^{\beta\mu}}=\frac{1}{1+e^{-\beta\mu}}\\
+    \avg{n_2}_{GC}=\frac{e^{-\beta(\Delta-\mu)}}{1+ e^{-\beta(\Delta-\mu)}}.
 \end{gather}
 Here, the chemical potential, $\mu$, is used to control the average number of particles in the system. There is one particle so the probabilities of level one and level two should add up to one. For this case, the chemical potential is found as 
 \begin{gather}
-    \avg{p_1}+\avg{p_2}=\avg{N}\nonumber\\
+    \avg{n_1}_{GC}+\avg{n_2}_{GC}=\avg{N}\nonumber\\
     \frac{1}{1+e^{-\beta\mu}}+\frac{e^{-\beta(\Delta-\mu)}}{1+e^{-\beta(\Delta-\mu)}}=1\nonumber\\
     \mu=\frac{\Delta}{2}.
 \end{gather}
 With the value of $\mu$ determined, the occupation probability for each level is
 \begin{gather}
-    \avg{p_1}=\frac{1}{1+e^{-\frac{\beta\Delta}{2}}}\\
-    \avg{p_2}=\frac{e^{-\frac{\beta\Delta}{2}}}{1+ e^{-\frac{\beta\Delta}{2}}}.
+    \avg{n_1}_{GC}=\frac{1}{1+e^{-\frac{\beta\Delta}{2}}}\\
+    \avg{n_2}_{GC}=\frac{e^{-\frac{\beta\Delta}{2}}}{1+ e^{-\frac{\beta\Delta}{2}}}.
 \end{gather}
 With the occupation probabilities worked out for both energy levels in both ensembles, the goal is now to see what the error would be when measuring the temperature $\beta$ of the canonical system in this example by using the grand canonical ensemble. This can be done by setting equal the two occupation probabilities that describe energy level $\epsilon_1=0$. The canonical ensemble temperature will be denoted as $\beta$ while the grand canonical ensemble temperature will be denoted as $\beta^*$. 
 Equating the two probabilities, produces 
 \begin{gather}
-    \avg{n_1}=\frac{1}{1+e^{-\beta\Delta}}=\frac{1}{1+e^{-\frac{\beta^*\Delta}{2}}}=\avg{p_1}.
+    \avg{n_1}_C=\frac{1}{1+e^{-\beta\Delta}}=\frac{1}{1+e^{-\frac{\beta^*\Delta}{2}}}=\avg{n_1}_{GC}.
 \end{gather}
 It can be observed that there is only equality between the two sides when $\beta^*=2\beta$. Using this relationship, the worst case scenario error is
 \begin{equation}
-    \frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}=\frac{\beta^*}{\beta}-1=1
+    \frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}=\frac{\beta^*}{\beta}-1=1.
 \end{equation}
-This shows a one hundred percent difference in the value of the measured temperature between the two ensembles. The error lies in the approximation of the particle number in the grand canonical ensemble. Since the chemical potential only sets the average number of particles in the system. This means that there is some probability of the system having $N+1$ particles, $N-1$ particles, and so on. Meanwhile, the canonical ensemble sets the number of particles exactly and therefore perfectly describes the case of cold atoms trapped in a potential trap. It turns out that this problem has been previously studied to produce analytical solutions for certain cases \cite{Hatem2020} \cite{Borr1993} \cite{Schon1996}.
+This shows a one hundred percent difference in the value of the measured temperature between the two ensembles. The error lies in the approximation of the particle number in the grand canonical ensemble. Since the chemical potential only sets the average number of particles in the system. This means that there is some probability of the system having $N+1$ particles, $N-1$ particles, and so on. Meanwhile, the canonical ensemble sets the number of particles exactly and therefore perfectly describes the case of cold atoms trapped in a potential trap. It turns out that this problem has been previously studied to produce analytical solutions for certain cases \cite{Hatem2020, Borr1993, Schon1996}.
 
 \section{Recursive relations and exact solutions}
-To solve the problem given in the previous section, previous physicists have created recursive equations that connect the canonical ensemble to the grand canonical ensemble is recursive \cite{Hatem2020} \cite{Borr1993} \cite{Schon1996}. Implementing a recursive equation allows one to build the partition up to a point and stop further calculations. The chosen stopping point is the number of particles that in the system since any partition function after that point does not describe the particluar state. Borrmann introduced a method to do this by summing over all the previous states \cite{Borr1993}. The steps for this recursion begin with the starting point at $Z(0)=1$ and defining 
-\begin{equation}
-    S(k):=\sum_j \exp{-\beta k \epsilon(j)}
-\end{equation}
-where the sum over $j$ is summing over all possible states. In the case of fermions, the partition function is written as
-\begin{equation}
-    Z_F(N)=\frac{1}{N_!}\sum_{r_1}\sum_{r_2\neq r_1}...\sum_{r_N\neq r_1,r_2...r_{N-1}} \exp{-\beta \sum_{k=1}^N \epsilon(r_k)}
-\end{equation}
-with $k$ denoting the particle and $r_k$ denoting the state that particle $k$ is in. The $\epsilon(r_k)$ term is then the energy of particle $k$ as state $r_k$. The sum can be split up into two terms
-\begin{align}
-    Z_F(N)&=\frac{1}{N}\qty[\frac{1}{(N-1)!} \sum_{r_1}\sum_{r_2\neq r_1}...\sum_{r_{N-1}\neq r_1,r_2...r_{N-2}} \exp{-\beta \sum_{k=1}^N \epsilon(r_k)}] \nonumber\\&\ \ \ \ \ \times \qty[\sum_{r_N}\exp{-\beta\epsilon(r_N)}-\sum_{j=1}^{N-1}\exp{-\beta\epsilon(r_j)}]\nonumber \\
-   &=\frac{1}{N}S(1)Z_F(N-1)\\
-   &\ \ \ \ -\frac{1}{N!}\qty[\sum_{r_1}\sum_{r_2\neq r_1}...\sum_{r_{N-1}\neq r_1,r_2...r_{N-2}} \exp{-\beta \sum_{k=1}^N \epsilon(r_k)} \exp{-\beta \epsilon(r_j)}] \nonumber
-\end{align}
-In the second step, the first bracket term is just the definition of $Z_F(N-1)$ and the first term in the second bracket is $S(1)$ by the definition given for the function. These steps can be repeated with the remaining bracket to give something with the form \cite{Borr1993}
+The problem we are trying to solve is how to accurately calculate the canonical partition function given that the sum over occupation numbers is restricted by the condition that there are $N$ particles in the ensemble. This non-trivial problem benefits from a method that allows for the partition function to be built up successively as shown by Borrmann \cite{Borr1993}. This method is performed by summing over all the previous states such that 
 \begin{gather}
-    Z_F(N)=\frac{1}{N}S(1)Z_F(N-1)-\frac{1}{N}S(2)Z_F(N-2)+\frac{1}{N}S(3)Z(N-3)-...\nonumber\\
-    Z_F(N)=\frac{1}{N}\sum_{k=1}^N (-1)^{k+1} S(k)Z_F(N-k)
+    Z_F(N)=\frac{1}{N}\sum_{k=1}^N (-1)^{k+1} S(k)Z_F(N-k). \label{Borrmann}
 \end{gather}
-
-This is a nice recursive relation that can be implemented with relative ease. The issue that arises from this is the $(-1)^{k+1}$ term. Numerically, this summation is unstable because it is constantly increasing and changing signs. Therefore, to accurately calculate the partition function, the summation must either be truncated before it fails or the numerical precision used must be increased. The latter method becomes very computationally expensive from a memory standpoint and takes a long time. Therefore, it is necessary to use a different approach. 
-
-
-Instead of using this general recursive relation, it is helpful to see if there are any specific cases that can be solved. The easiest example would be that of the simple harmonic oscillator. An exact solution was found for this spectrum by Sch\"onhammer \cite{Schon1996}. This solution differs from Borrmann's because it counts the number of ways that a particular state can be created starting from the ground state. 
-
-The shift from the ground state energy level to the first excited state is given by a change of $\Delta$, which is the difference in energy between the two levels. For the simple harmonic oscillator spectrum, $\Delta=1$. Therefore, if the particle in the ground state were to move to the second excited state, the change would be $2\Delta$. The pattern continues for higher energy levels. To generalize this idea. A system of more than one particle in the ground state configuration could be excited in such a way that some or all of the particles move to a higher state. The total sum of each of these changes would then add up to final value $M$. As an example, consider the case of $M=4$. There are five possible systems or partitions that can give this value. One would be that one particle moves up four levels, while another would be four particles moving up one level each. To account for the number of ways to get a specific value of $M$, consider that
-\begin{gather}
-    M=m_1+2m_2+3m_3+...+Mm_M=\sum_{\ell=1}^M \ell m_{\ell}\\
-    g_m=\sum_{m_1=0}^{\infty}\sum_{m_2=0}^{\infty}...\sum_{m_M=0}^{\infty}\sum_{m_{M+1}=0}^{\infty}...\delta_{M,\sum_{\ell=1}^M \ell m_{\ell}}
-\end{gather}
-where $m_l$ represents the number of particles that move up $l$ levels. The value $g_m$ represents the total number of ways to construct a partition corresponding to $M$. In other words, $g_m$ is the degeneracy corresponding to a specific energy $M\Delta$.  
-
-While it is unnecessary to include more than $M$ different summations in Equation (1.26), the infinitely extra terms help with the calculation of the partition function. To show this, consider the canonical partition function of the linear model, i.e. the simple harmonic oscillator
+where $Z(0)=1$ and 
 \begin{equation}
-    Z_C(N)=\sum_{M=0}^{\infty} g_M \exp(-\beta(E_0+M\Delta)).
+    S(k):=\sum_j \exp{-\beta k \epsilon(j)}.
 \end{equation}
-From this equation, the value for $g_M$ can be plugged in and some simple algebra gives the exact solution as \cite{Schon1996}
-\begin{align}
-    Z_C(N)&=\sum_{M=0}^{\infty} \sum_{m_1=0}^{\infty}\sum_{m_2=0}^{\infty}...\sum_{m_M=0}^{\infty}... \delta_{M,\sum_{\ell=1}^M \ell m_{\ell}} \exp(-\beta(E_0+M\Delta))\nonumber\\
-    &=\exp(-\beta E_0) \prod_{\ell=1}^{\infty}\qty(\sum_{m_{\ell}=0}^{\infty} \exp(-m_{\ell}\beta \ell\Delta))\nonumber\\
-    &=\exp(-\beta E_0) \prod_{\ell=1}^{\infty} \frac{1}{1-\exp(-\beta \ell\Delta)}.
-\end{align}
-In the second line, the summation in the exponential was brought down as a product. The last line, the geometric series was solved to give the fraction. This is the exact solution for the canonical partition function of a linear spectrum. One interesting thing to note about this solution is that it can be rewritten as a recursive equation. The product is of all the terms corresponding to having $1$ through $N$ particles. Therefore, the next value in the recursion is found by multiplying the previous value by a factor as shown below
+In this equation, the sum over $j$ is over all possible states. The issue with this recursive relationship is when it is implemented in code. For large $N$, the additional terms in the sum in $S(k)$ get exponentially smaller and therefore contribute less to the total. Depending on the machine precision, the higher energy terms may be considered to be zero compared to the lower energy levels. The issue with this is when the number of particles in the ensemble is large enough that energy levels around the Fermi level are neglected numerically, where those levels are the most relevant ones for the thermodynamics of the system. Therefore, the stability of this method is based on the machine precision chosen. For large enough values $N$, there may be no variable size available to accurately describe the partition function. This is shown in Fig.\@ (\ref{fig:BorrmannAcc}) where different precisions are used to compute the partition function in a range of $N=0$ to $10$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{figures/pdf/Borrmann accuracy.pdf}
+    \caption{The solution for the Borrman recursive relation of the canonical partition function for different machine precisions. As $N$ increases, the required precision to accurately find the partition function also increases. The breakdown of the recursion is only delayed by the precision used. Therefore, this is numerically expensive to calculate for $N>60$. Figure adapted from \cite{Jiang}.}
+    \label{fig:BorrmannAcc}
+\end{figure}
+As shown, to accurately calculate the partition function, the summation must either be truncated before it fails or the numerical precision used must be increased. The latter method becomes very computationally expensive from a memory standpoint and takes a long time. 
+In addition to this, the $(-1)^{k+1}$ term creates another problem. This term means that the summation is constantly changing signs creating a sort of sign problem. Once again, fixing this problem requires truncation or an increase in numerical precision. Truncating the summation may fail to completely describe the partition function and higher precision requires more memory. Given these problems, it is necessary to use a different approach. 
+
+Instead of using this general recursive relation, it is helpful to see if there are any specific cases that can be solved. The easiest example would be that of fermions confined in a harmonic trap. An exact solution was found for this spectrum by Sch\"onhammer \cite{Schon1996}. For the one dimensional simple harmonic oscillator, the partition function was found to be
 \begin{equation}
-    Z_C(N)=\frac{\exp{-\beta N\Delta}}{1-\exp{-\beta N\Delta}}Z_C(N-1)
+    Z_N=e^{-\beta E_N^0} \prod_{m=1}^N \frac{1}{1-e^{-\beta m\Delta}} \label{schoneqn}
 \end{equation}
-with the starting value of $Z_C(1)=1$. This equation is numerically stable and can be solved either recursively or as a product. 
-This exact solution provides not only a method to calculate the canonical partition function for the one dimensional simple harmonic oscillator, but also provides a result for other methodologies to check against.\\
-While this solution works for the specific cases of a linear energy spectrum, a solution is still needed for other energy spectra. This has been worked out by Barghathi et al. \cite{Hatem2020}. The canonical partition function can be calculated using a summation.
+where $\Delta$ is the spacing between equidistant energy levels and $E_N^0$ is the ground state energy \cite{Schon1996}. This is the exact solution for the canonical partition function of a linear spectrum and provides a result that other methods can use to check their accuracy.
+
+While this solution works for the specific cases of a linear energy spectrum, a general solution is still needed for other energy spectra. This has been worked out by Barghathi et al. \cite{Hatem2020}. The canonical partition function can be calculated using a summation.
 \begin{equation}
     Z_N=\sum_{k=k_{min}}^{k_{max}} Z_k(S^{(1)})Z_{N-k}(S^{(2)})
+    \label{eq:ZNcombine}
 \end{equation}
 where $S$ denotes a spectrum that is a union of disjoint subspectra \cite{Hatem2020}. This can be written as 
 \begin{gather}
-    S=S^{(1)}\cup S^{(2)}\\
-    S^{(1)}=\frac{S}{S^{(2)}}
-    S^{(2)}=\frac{S}{S^{(1)}}
+    S=S^{(1)}\cup S^{(2)}.
 \end{gather}
 Using this spectral formulation, the partition function summation can be written more specifically as 
 \begin{equation}
-    Z_N=\sum_{k=0}^N Z_k(\{\epsilon_1,\epsilon_2,...\epsilon_j\})Z_{N-k}^{\backslash \{\epsilon_1,\epsilon_2,...\epsilon_j\}} 
+    Z_N=\sum_{k=0}^N Z_k(\{\epsilon_1,\epsilon_2,...\epsilon_j\})Z_{N-k}^{\backslash \{\epsilon_1,\epsilon_2,...\epsilon_j\}} \label{newZN}
 \end{equation}
 where the $\backslash \{\epsilon_1,\epsilon_2,...\epsilon_j\} $ denotes the energy levels excluded from the spectrum of the particular partition function. Now let each spectrum $S^{(j)}$ consist of a single energy level. For non-interacting fermions, the partition function of a system with a single energy level is
 \begin{equation}
-    Z_k(\{j\})=\begin{cases} e^{-\beta \epsilon_j k} & 0\leq k \leq 1\\0 & \text{otherwise}\end{cases}
+    Z_k(\{j\})=\begin{cases} e^{-\beta \epsilon_j k} & 0\leq k \leq 1\\0 & \text{otherwise}.\end{cases}
 \end{equation}
-By substituting this into (1.36) we see that
+By substituting this into Eq.\@ (\ref{newZN}) we see that
 \begin{equation}
-    Z_N=Z_N^{\backslash\{j\}}+e^{-\beta\epsilon_j}Z_{N-1}^{\backslash\{j\}}
+    Z_N=Z_N^{\backslash\{j\}}+e^{-\beta\epsilon_j}Z_{N-1}^{\backslash\{j\}}. \label{hatemrr}
 \end{equation}
-This equation can be understood by looking at each term on the right side. On the left side of the addition, the $Z_N^{\backslash\{j\}}$ term is the canonical partition function of $N$ particles with no particle in the $j$th energy level. This represents the complimentary probability, $q_j$, or the probability that energy level $\epsilon_j$ is unoccupied. The term on the right hand side has a Boltzmann probability for energy level $\epsilon_j$ times the canonical partition function of $N-1$ particles with no particle at the $j$th energy level. The Boltzmann term introduces the probability of occupying state $j$ with a particle, so the total number of particles on the right hand side of the addition is $N$, the same as the left. The state that is excluded from the partition function is reintroduced meaning that this term is the probability that energy level $\epsilon_j$ is occupied. Since the state can only be occupied or unoccupied for fermions, we can recognize that the full partition function is a sum of the unoccupied and occupied terms, or the full probability. 
+This equation can be understood by looking at each term on the right side. On the left side of the addition, the $Z_N^{\backslash\{j\}}$ term is the canonical partition function of $N$ particles with no particle in the $j$th energy level. This represents the complementary probability, or the probability that energy level $\epsilon_j$ is unoccupied. The term on the right hand side has a Boltzmann probability for energy level $\epsilon_j$ times the canonical partition function of $N-1$ particles with no particle at the $j$th energy level. The Boltzmann term introduces the probability of occupying state $j$ with a particle, so the total number of particles on the right hand side of the addition is $N$, the same as the left. The state that is excluded from the partition function is reintroduced meaning that this term is the probability that energy level $\epsilon_j$ is occupied. Since the state can only be occupied or unoccupied for fermions, we can recognize that the full partition function is a sum of the unoccupied and occupied terms, or the full probability. 
 
-To understand this better, let's consider another simple example. Consider there are two energy levels $\epsilon_1$ and $\epsilon_2$. The canonical partition functions is 
+To understand this better, let's consider another simple example with only two energy levels $\epsilon_1$ and $\epsilon_2$. The canonical partition functions is 
 \begin{equation}
-    Z(N) = \begin{cases}
+    Z_N = \begin{cases}
     1 & N=0\\
     e^{\epsilon_1}+e^{\epsilon_2} & N=1\\
     e^{\epsilon_1+\epsilon_2} & N=2
@@ -204,18 +210,18 @@ To understand this better, let's consider another simple example. Consider there
 \end{equation}
 Now using this formulation from above, break down the full spectrum into two subsectra given as 
 \begin{gather}
-    Z_1=\begin{cases}1&N=0\\e^{\epsilon_1}& N=1\end{cases}\\
-    Z_2=\begin{cases}1&N=0\\e^{\epsilon_2}& N=1\end{cases}.
+    Z_N^1=\begin{cases}1&N=0\\e^{\epsilon_1}& N=1\end{cases}\\
+    Z_N^2=\begin{cases}1&N=0\\e^{\epsilon_2}& N=1\end{cases}.
 \end{gather}
 Now the partition function corresponding to each $N$ can be calculated using Equation (1.35)  
 \begin{gather}
-    Z(0)= (1)(1)=1\\
-    Z(1)= (1)(e^{-\beta\epsilon_1})+(e^{-\beta\epsilon_2})(1)=e^{-\beta\epsilon_1}+e^{-\beta\epsilon_2}\\
-    Z(2)=(e^{-\beta\epsilon_1})(e^{-\beta\epsilon_2})=e^{-\beta\epsilon_1-\beta\epsilon_2}
+    Z_0= (1)(1)=1\\
+    Z_1= (1)(e^{-\beta\epsilon_1})+(e^{-\beta\epsilon_2})(1)=e^{-\beta\epsilon_1}+e^{-\beta\epsilon_2}\\
+    Z_2=(e^{-\beta\epsilon_1})(e^{-\beta\epsilon_2})=e^{-\beta\epsilon_1-\beta\epsilon_2}.
 \end{gather}
 Putting these values together yields 
 \begin{equation}
-    Z(N) = \begin{cases}
+    Z_N = \begin{cases}
     1 & N=0\\
     e^{\epsilon_1}+e^{\epsilon_2} & N=1\\
     e^{\epsilon_1+\epsilon_2} & N=2
