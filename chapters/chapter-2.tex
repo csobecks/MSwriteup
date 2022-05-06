@@ -50,7 +50,7 @@ where the definition for $\avg{\bar{n}_j}_{GC}$ mentioned above was used and $1-
 Eq.\@ (\ref{recursiontopb}) could be viewed as the Poisson binomial recursive relation
 \begin{equation}
     P_N=q_j  P_N^{\backslash\{j\}}+ p_j P_{N-1}^{\backslash\{j\}} \label{pbrr}
-\end{equation}
+ \end{equation}
 for a set of individual success probabilities $\{p_j\}$ and their complements $\{q_j\}$. Here, the $p_j\equiv \avg{n_j}_{GC}$ terms represent the success probability of occupying energy level $j$ in the grand canonical ensemble. Likewise, $q_j\equiv \avg{\bar{n}_j}_{GC}$. The Poisson binomial distribution is a generalized form of the binomial distribution. The binomial distribution contains $M$ trials with a fixed success probability $p$ for each trial. The Poisson binomial distribution, on the other hand, allows for the probability $p$ to change with each trial. In the language of the coin toss example, the binomial distribution would be the result of using the same coin for $M$ trials while the Poisson binomial distribution would be the result of changing the coin each trial. In the binomial distribution, the average value of successes (say, heads), would be the sum of all $p$ values, or $p$ time $M$ since the probability stays constant. In the Poisson binomial distribution, this average would come from summing all of the values for $p_j$ since they are allowed to vary. 
 
 This recursion has many interesting properties. To start, it adds on a value to the distribution each iteration. When at position $N+1$, the $p_j P_{N-1}^{\backslash\{j\}}$ term still contributes a nonzero value to the probability. This means that iterating over all possible $j$ values for $p_j$ and $q_j$ will give a distribution that is $j+1$ values long. This can be viewed as the general form of a Pascal triangle since Pascal's triangle applies to the binomial distribution. 
@@ -105,7 +105,7 @@ Continuing,
     P_4(3)=p_4 P_{3}(2)+q_4 P_{3}(3)=\qty(\frac{1}{6})\qty(\frac{1}{2})+\qty(\frac{5}{6})\qty(\frac{1}{6})=\frac{8}{36}\\
     P_4(4)=p_4 P_{3}(3)=\qty(\frac{1}{6})\qty(\frac{1}{6})=\frac{1}{36}
 \end{gather*}
-Since there are not more probabilities to include, the final distribution has been found to be
+Since there are no more probabilities to include, the final distribution has been found to be
 \begin{equation*}
     P_4(0)=0, P_4(1)=\frac{10}{36}, P_4(2)=\frac{17}{36}, P_4(3)=\frac{8}{36}, P_4(4)=\frac{1}{36}.
 \end{equation*}
@@ -153,7 +153,7 @@ With the occupation probabilities, the temperature can be extracted by fitting t
 \begin{equation}
     \chi^2=\sum_j(\avg{n_j}_{GC}-\avg{n_j}_C)^2. \label{chisq}
 \end{equation}
-With $\mu$ fixed, The only variable in this equation is $\beta^*$. Since the equation is dependent only on $\beta^*$, the first and second derivatives can be calculated and used to find the minimum. The full calculation is performed in Appendix B. Let $p_j=\avg{n_j}_{GC}$, $q_j=\avg{\bar{n}_j}_{GC}$, and $n_j=\avg{n_j}_C$ to simplify the calculations. The important results are 
+With $\mu$ fixed, the only variable in this equation is $\beta^*$. Since the equation is dependent only on $\beta^*$, the first and second derivatives can be calculated and used to find the minimum. The full calculation is performed in Appendix B. Let $p_j=\avg{n_j}_{GC}$, $q_j=\avg{\bar{n}_j}_{GC}$, and $n_j=\avg{n_j}_C$ to simplify the calculations. The important results are 
 \begin{gather}
     \frac{d\chi^2}{d\beta^*}=\sum_j -2(p_j-n_j)p_j q_j \epsilon_j+\sum_j 2(p_j-n_j)p_j q_j C_1\\
     \frac{d^2\chi^2}{d\beta^{*2}}=2\sum_j\Biggr[(\epsilon_j-C_1)^2[(p_j-n_j)p_jq_j(q_j-p_j)+p_j^2q_j^2]\nonumber\\
@@ -169,18 +169,20 @@ With both derivatives available, Newton's method of optimization is used to find
 to iterate until the minimum is found to a desired level or numerical precision.
 
 \section{Degenerate energy spectra}
-Now the case of degenerate energy spectra will be considered. To begin, define the degeneracy of a certain energy level $i$ as $g_i$. The canonical partition function for such level is written as
+The Poisson binomial recursive method was developed on the assuming a nondegenerate energy spectrum. This assumption is not the case in the cold atom experiments mentioned in Chapter 1. In two or three dimensional harmonic or quadratic traps, there will be some number of degeneracy for each level and the spectrum does not necessarily have the same spacing as their one dimensional counterparts. For this reason it is necessary that degeneracy be considered. 
+
+
+\subsection{Filled Degenerate Fermi Level}
+The first case to consider is when the Fermi level is degenerate and filled for large $\beta$. In this case, for sufficiently large $\beta$, the thermodynamical properties of the  system are governed by the excitation from the Fermi level to the first excited level. Since all other levels are filled or empty, let us relabel our energy levels such that $i=0$ denotes the Fermi level and $i=1$ denotes the first excited state. Let the degeneracy of level $i$ be $g_i$. In a system of $N$ particles with a filled Fermi level, there are $g_0$ particles between the levels $\epsilon_0$ and $\epsilon_1$, where $\epsilon_0$ is the energy of the Fermi level and $\epsilon_1$ is the energy of the first excited state. The canonical partition function of $k$ particles for a single level of energy $\epsilon_i$ and degeneracy $g_i$ where $k\leq g_i$ is 
 \begin{equation}
-    Z_k(\epsilon_i;g_i)={g_i \choose k} e^{-k\beta\epsilon_i}
+    Z_k(\epsilon_i;g_i)={g_i \choose k} e^{-k\beta\epsilon_i}.
     \label{eq:ZNsinglelevel}
 \end{equation}
-with $k$ being the number of particles at level $i$.  For the purpose of this calculation, $\beta$ is sufficiently large so that the only excitations will be around Fermi energy level. In this scenario, there are two cases of interest. These are when the degenerate Fermi level is filled and partially filled. 
-\subsection{Filled Degenerate Fermi Level}
-The first case to consider is when the Fermi level is degenerate and filled in the limit $\beta \to \infty$. In this case, and for sufficiently large $\beta$, the thermodynamical properties of the  system are governed by the excitation from the Fermi level to the first excited level. All other levels are filled or empty. To begin, let $i=0$ denote the Fermi level and $i=1$ denote the first excited state. Since these two levels are the only ones of interest, the simple example in Section 1.3 can be revisited. Consider there is one particle in a system where the Fermi level has degeneracy $g_0$ and energy $\epsilon_0$ and the first excited state has degeneracy $g_1$ and energy $\epsilon_1$. For convenience, the energy spectrum can be redefined as
+The Boltzmann factor $e^{-k\beta\epsilon_i}$ is the same across all ${g_i \choose k}$ possible occupations. Since there are only two levels of interest in this case, the simple example in Section 1.3 can be revisited. Consider that there is one particle in a system where the Fermi level has degeneracy $g_0$ and energy $\epsilon_0$ and the first excited state has degeneracy $g_1$ and energy $\epsilon_1$. For convenience, the energy spectrum can be redefined as
 \begin{equation}
     \epsilon_0 \xrightarrow[]{} 0\ \ \ \ \ \epsilon_1\xrightarrow[]{}\Delta_0=\epsilon_1-\epsilon_1.\nonumber
 \end{equation}
-The partition function for this case can be written from Eqs. (\ref{eq:ZNsinglelevel}) and ( \ref{eq:ZNcombine}) to yield
+The partition function for this case can be written from Eqs. (\ref{eq:ZNsinglelevel}) and (\ref{eq:ZNcombine}) to yield
 \begin{align}
     Z_{g_0}(0,\Delta_0;g_0,g_1)&=\sum_{k=0}^{\text{min}(g_1,g_0)} Z_k(\Delta_0,g_1)Z_{g_0-k}(0,g_0)\nonumber\\
     &=\sum_{k=0}^{\text{min}(g_1,g_0)} {g_1 \choose k}{g_0\choose g_0-k} e^{-\beta \epsilon_0 k}e^{-\beta \epsilon_1 k}\nonumber\\
@@ -218,7 +220,7 @@ This is a simple quadratic equation so there will be two solutions. To have a re
     e^{-\beta^*\mu}&=\frac{(\frac{g_1}{g_0}-1)\pm\sqrt{(\frac{g_1}{g_0}-1)^2+4e^{\beta^*\Delta_0}\frac{g_1}{g_0}}}{2e^{\beta^*\Delta_0}}\nonumber\\
     &=\frac{e^{-\beta^*\Delta_0}}{2}(\frac{g_1}{g_0}-1)\pm \frac{1}{2}\sqrt{e^{-2\beta^*\Delta_0} (\frac{g_1}{g_0}-1)^2+ 4e^{-\beta^*\Delta_0}\frac{g_1}{g_0}}.
 \end{align}
-Just like the simple example before, set the canonical and grand canonical probabilities to be equal, such that $\avg{n_0}_{g_0}=p_0$. This gives 
+Just like the simple example we saw in Chapter 1, we set the canonical and grand canonical probabilities to be equal, such that $\avg{n_0}_{g_0}=p_0$. This gives 
 \begin{align}
     \frac{1}{\avg{n_0}_{g_0}}-1=\frac{1}{p_0}-1=1+e^{-\beta^*\mu}-1=e^{-\beta^*\mu} .
 \end{align}
@@ -232,15 +234,14 @@ Now there is a connection to the grand canonical probability to the canonical pr
     4\qty(\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}})^2=4e^{-\beta^*\Delta_0}\qty(\qty(\frac{g_1}{g_0}-1)\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}}+\frac{g_1}{g_0})\nonumber\\
     e^{\beta^* \Delta_0}=\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}}(\frac{g_1}{g_0}-1)+\qty(\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}})^2\frac{g_1}{g_0}.
 \end{gather}
-With this definition, $\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}}$ terms are worked out and plugged in. This is done in Appendix C.1. An important note for these calculations is that terms greater than $\mathcal{O}\qty(e^{-2\beta \Delta_0})$ are neglected because they will be sufficiently small. Using Eqs.\@ (\ref{C8}) and (\ref{C9}),
+With this definition, $\frac{1-\avg{n_0}_{g_0}}{\avg{n_0}_{g_0}}$ terms are worked out and plugged in. This is done in Appendix C.1. An important note for these calculations is that terms greater than $\mathcal{O}\qty(e^{-2\beta \Delta_0})$ are neglected because they will be sufficiently small at low temperature. Using Eqs.\@ (\ref{C8}) and (\ref{C9}),
 \begin{align}
     e^{\beta^* \Delta_0}&=\frac{e^{\beta\Delta_0}}{g_1}\qty(1+\frac{(g_1+1)(g_0-1)}{2}e^{-\beta\Delta_0})\qty(\frac{g_1}{g_0}-1)\nonumber\\
     &\ \ \ \ \ \ \ \ \ \ +\frac{e^{2\beta\Delta_0}}{g_1^2}\qty(1+(g_1+1)(g_0-1)e^{-\beta\Delta_0})\frac{g_1}{g_0}\nonumber\\
-    &=\frac{e^{2\beta\Delta_0}}{g_1g_0}\qty((g_1-g_0)e^{-\beta\Delta_0}+f+(g_1+1)(g_0-1)e^{-\beta\Delta_0})\nonumber\\
+    &=\frac{e^{2\beta\Delta_0}}{g_1g_0}\qty((g_1-g_0)e^{-\beta\Delta_0}+1+(g_1+1)(g_0-1)e^{-\beta\Delta_0})\nonumber\\
     &=\frac{e^{2\beta\Delta_0}}{g_1g_0}\qty((g_1g_0-1)e^{-\beta\Delta_0}+1)\\
     \beta^*\Delta_0&=2\beta\Delta_0-\ln(g_0g_1)+\ln\qty((g_1g_0-1)e^{-\beta\Delta_0}+1).
 \end{align}
-% \hatemcomment{{What is $f$ in the above equation? (Eq. (2.29))}}
 Since $e^{-\beta\Delta_0}$ is small, the third term on the right hand size can be approximated using $\ln(1+x)\approx x$, for $x\ll1$. This yields
 \begin{align}
     \beta^*\Delta_0&=2\beta\Delta_0-\ln\qty(g_0g_1)+(g_1g_0-1)e^{-\beta\Delta_0}\nonumber\\
@@ -255,7 +256,7 @@ This equation should give the same results when the degeneracies are removed. Do
     g_0=g_1=1\nonumber\\
     \frac{\delta\beta}{\beta}=1-\frac{\ln(1)}{C_1}+\frac{(1)(1)-1}{C_2}=1. \label{filldegencheck}
 \end{gather}
-This is the condition for the nondegenerate case, so the filled degenerate fermi level case is consistent with matches the nondegenerate case. 
+This is the condition for the nondegenerate case, so the filled degenerate fermi level case is consistent with the nondegenerate case. 
 \subsection{Partially Filled Degenerate Fermi Level}
 Turning to the case of a partially filled degenerate energy spectrum, consider that the Fermi level is partially filled. This setup requires considering both the level above and below the Fermi level. The energy spectrum can be rewritten as 
 \begin{gather}
@@ -294,16 +295,16 @@ As before, the grand canonical occupation probability are written as,
     p_0=\frac{1}{1+e^{-\beta^*\mu}}\nonumber\\
     p_{-1}=\frac{1}{1+e^{\beta^*(\Delta_{-1}-\mu)}}\nonumber
 \end{gather}
-The chemical potential is found from the particle number. This is worked out in Appendix C.2, but the solution is shown below. 
+The chemical potential is found from the particle number. This is worked out in Appendix C.2 with the final result shown below:
 \begin{align}
     &0=e^{-3\beta^*\mu}(e^{\beta^*(\Delta_1+\Delta_{-1})})\nonumber\\
     &+e^{-2\beta^*\mu}\Biggr(e^{\beta^*\Delta_1}+e^{\beta^*\Delta_{-1}}+e^{\beta^*(\Delta_{-1}+\Delta_1)}-\frac{g_1}{g_{-1}+\ell}e^{\beta^*\Delta_{-1}}\nonumber-\frac{g_0}{g_{-1}+\ell}e^{\beta^*(\Delta_1+\Delta_{-1})}\nonumber\\
     &\quad\quad\quad\quad\ \ \ -\frac{g_{-1}}{g_{-1}+\ell}e^{\beta^*\Delta_1}\Biggr)\nonumber\\
     &+e^{-\beta^*\mu}\Biggr(1+e^{\beta^*\Delta_1}+e^{\beta^*\Delta_{-1}}-\frac{g_1}{g_{-1}+\ell}(1+e^{\beta^*\Delta_{-1}})-\frac{g_0}{g_{-1}+\ell}(e^{\beta^*\Delta_1}+e^{\beta^*\Delta_{-1}})\nonumber\\
     &\quad\quad\quad\quad\ \ -\frac{g_{-1}}{g_{-1}+\ell}(1+e^{\beta^*\Delta_1})\Biggr)\nonumber\\
-    & +(1-\frac{g_1}{g_{-1}+\ell}-\frac{g_0}{g_{-1}+\ell}-\frac{g_{-1}}{g_{-1}+\ell})
+    & +(1-\frac{g_1}{g_{-1}+\ell}-\frac{g_0}{g_{-1}+\ell}-\frac{g_{-1}}{g_{-1}+\ell}).
 \end{align}
-This is a cubic equation with roots that contain $e^{-\beta^*\Delta_0}$ and $e^{-\beta^*\Delta_{-1}}$, which can be exactly solved to determine the dependence of $\mu$ on $\beta^*$. Now we can relate $\beta^*$ to $\beta$ by setting one of the canonical occupation probabilities equal to its grand canonical counterpart. However, in this case, the result is not unique as only the sum of the two remaining occupation probabilities is expected to be the same in both ensembles but not the individual occupation probabilities, In other words, the number of equations to satisfy exudes the number of free parameters.
+This is a cubic equation with roots that contain $e^{-\beta^*\Delta_0}$ and $e^{-\beta^*\Delta_{-1}}$, which can be exactly solved to determine the dependence of $\mu$ on $\beta^*$. Now we can relate $\beta^*$ to $\beta$ by setting one of the canonical occupation probabilities equal to its grand canonical counterpart. However, in this case, the result is not unique as only the sum of the two remaining occupation probabilities is expected to be the same in both ensembles but not the individual occupation probabilities, In other words, the number of equations to satisfy exceeds the number of free parameters.
 This can  be handled numerically by performing a least square fit as described in Section \ref{section:TemperatureExtraction}. %This is a cubic equation with roots that contain $e^{-\beta^*\Delta_0}$ and $e^{-\beta^*\Delta_{-1}}$. Given this equation, there are more variables than equations describing this case, so an exact solution cannot be found.
 Therefore, it's desirable to turn this into a two level system. To do so, consider that either $\Delta_0$ or $\Delta_{-1}$ is large enough that any excitations to or from that level are negligible. These two cases are discussed in the following sections. 
 
@@ -329,22 +330,22 @@ Using the grand canonical probabilities, the chemical potential term can be foun
 This produces a quadratic equation, with the solution
 \begin{align}
     e^{-\beta^*\mu }&=\frac{1}{2}((\frac{g_0}{\ell}-1)+(\frac{g_1}{\ell}-1)e^{-\beta^*\Delta_0})\nonumber\\
-    &+\frac{1}{2}\sqrt{((\frac{g_0}{\ell}-1)+(\frac{g_1}{\ell}-1)e^{-\beta^*\Delta_0})^2-4e^{-\beta^*\Delta_0}(1-\frac{g_0}{\ell}-\frac{g_1}{\ell})}.
+    &\ \ +\frac{1}{2}\sqrt{((\frac{g_0}{\ell}-1)+(\frac{g_1}{\ell}-1)e^{-\beta^*\Delta_0})^2-4e^{-\beta^*\Delta_0}(1-\frac{g_0}{\ell}-\frac{g_1}{\ell})} .
 \end{align}
 Equation (2.31) is used again to find $\avg{n_0}_{g_0}$ in terms of $e^{-\beta^*\mu}$.
 Setting the first term equal to Equation (2.45) gives an equation that can be solved for $e^{-\beta^*\Delta_0}$. This is worked out in Appendix C.3. The solution is
 \begin{align}
     e^{-\beta^*\Delta_0}&=\frac{g_0-\ell}{g_0-\ell+1}e^{-\beta\Delta_0} \Biggr[1+\frac{g_1 \ell}{(g_0-\ell)(g_0-\ell+1)}e^{-\beta\Delta_0}\nonumber\\
-    &\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\frac{(g_0-\ell+1)-g_1\ell+g_1+g_0}{(g_0-\ell+1)(g_0-\ell+2)}e^{-\beta\Delta_0}\Biggr] \label{2.42}
+    &\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\frac{(g_0-\ell+1)-g_1\ell+g_1+g_0}{(g_0-\ell+1)(g_0-\ell+2)}e^{-\beta\Delta_0}\Biggr]. \label{2.42}
 \end{align}
-For a partially filled Fermi level, $g_0\neq \ell$. Keeping only terms to the first order in $e^{-\beta\Delta_0}$, the equation above becomes
+For a partially filled Fermi level, $g_0\neq \ell$. Keeping only terms to first order in $e^{-\beta\Delta_0}$, the equation above becomes
 \begin{align}
     e^{-\beta^*\Delta_0}&=\frac{g_0-\ell}{g_0-\ell+1} e^{-\beta\Delta_0}\nonumber\\
     -\beta^*\Delta_0&=-\beta\Delta_0+\ln(\frac{g_0-\ell}{g_0-\ell+1})\nonumber\\
     \beta^*&=\beta+\frac{1}{\Delta_0}\ln(\frac{g_0-\ell+1}{g_0-\ell})\nonumber\\
     \frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}&=\frac{1}{\Delta_0 \beta}\ln(\frac{g_0-\ell+1}{g_0-\ell}). \label{partfilldegen1}
 \end{align}
-In the case when $g_0=\ell$, the filled degenerate theory should reappear. This requires that the next order be included in Eq.\@ (\ref{2.42}) Since $g_0-\ell=g_0-g_0$, the only term that survives is the second in the bracket. This gives
+In the case when $g_0=\ell$, the filled degenerate theory should apply. This requires that the next order be included in Eq.\@ (\ref{2.42}) Since $g_0-\ell=g_0-g_0$, the only term that survives is the second in the bracket. This gives
 \begin{align}
     e^{-\beta^*\Delta_0}&= e^{-\beta\Delta_0} \qty(\frac{g_1 \ell}{(g_0-\ell+1)^2} e^{-\beta\Delta_0})\nonumber\\
     &=e^{-2\beta\Delta_0} \frac{g_1 g_0}{(g_0-g_0+1)^2}\nonumber\\
@@ -411,7 +412,7 @@ This last line can be rewritten as
     &Z_{g_{-1}+\ell+1}(-\Delta_{-1},0;g_{-1},g_0-1)=e^{g_{-1}\beta\Delta_{-1}}{g_0\choose \Bar{\ell}} \frac{g_0-\bar{\ell}}{g_0} \Biggr[1+\frac{g_{-1}\Bar{\ell})}{g_0-\Bar{\ell}}e^{-\beta\Delta_{-1}}\nonumber\\
     &\quad+\frac{g_{-1}(g_{-1}-1)\Bar{\ell}(\Bar{\ell}-1)}{2(g_0-\Bar{\ell})(g_0-\Bar{\ell}+1)}e^{-2\beta\Delta_{-1}}\Biggr].
 \end{align}
-This is useful for the calculation of the numerator in Eq.\@ (\ref{2.56}) Calculating this term by term in orders of $e^{\beta\Delta_{-1}}$, the first term is the $e^0$ quantities, which is 
+This is useful for the calculation of the numerator in Eq.\@ (\ref{2.56}) Calculating this term by term in orders of $e^{\beta\Delta_{-1}}$, the first term is the $e^0$ quantity, which is 
 \begin{equation}
     1-\frac{g_0-\bar{\ell}}{g_0}=\frac{g_0-g_0+\bar{l}}{g_0}=\frac{\bar{l}}{g_0}.
 \end{equation}
@@ -434,7 +435,7 @@ Bringing all the terms together and cancelling out terms, the value of $\avg{\ba
 \begin{equation}
     \avg{\bar{n}_0}=\frac{\bar{\ell}}{g_0}\frac{1+\frac{g_{-1}(\bar{\ell}-1)}{g_0-\bar{\ell}+1}e^{-\beta\Delta_{-1}}+\frac{g_{-1}(g_{-1}-1)(\bar{\ell}-1)(\bar{\ell}-2)}{2(g_0-\bar{\ell}+1)(g_0-\bar{\ell}+2)}e^{-2\beta\Delta_{-1}}}{1+\frac{g_{-1}\bar{\ell}}{g_0-\bar{\ell}+1}e^{-\beta\Delta_{-1}}+\frac{g_{-1}(g_{-1}-1)\bar{\ell}(\bar{\ell}-1)}{2(g_0-\bar{\ell}+1)(g_0-\bar{\ell}+2)}e^{-2\beta\Delta_{-1}}}
 \end{equation}
-Inspecting this equation, it matches Eq.\@ (\ref{2.39}) with $\ell\xrightarrow[]{}\bar{\ell}$, $\Delta_0\xrightarrow[]{}\Delta_{-1}$, $g_1\xrightarrow[]{}g_{-1}$, and $\avg{n_0}\xrightarrow[]{}\avg{\bar{n}_0}$. After making the change to these new terms, the calculations following this will be the same as Case 1 following Eq.\@ (\ref{2.39}) Therefore, the equation for $\frac{\delta\beta}{\beta}$ can be read directly from Case 1 with the proper substitutions. This results in the equation 
+Inspecting this equation, it matches Eq.\@ (\ref{2.39}) with $\ell\xrightarrow[]{}\bar{\ell}$, $\Delta_0\xrightarrow[]{}\Delta_{-1}$, $g_1\xrightarrow[]{}g_{-1}$, and $\avg{n_0}\xrightarrow[]{}\avg{\bar{n}_0}$. After making the change to these new terms, the calculations following this will be the same as Case 1 following Eq.\@ (\ref{2.39}). Therefore, the equation for $\frac{\delta\beta}{\beta}$ can be read directly from Case 1 with the proper substitutions. This results in the equation 
 \begin{equation}
     \frac{\delta\beta}{\beta}=\frac{1}{\beta\Delta_{-1}}\ln(\frac{g_0-\bar{\ell}+1}{g_0-\bar{\ell}}). \label{2.64}
 \end{equation}

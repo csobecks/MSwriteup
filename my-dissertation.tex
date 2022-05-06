@@ -48,7 +48,6 @@
 \usepackage{nomencl}                    % produces a nomenclature
 \usepackage{float}                      % figure floats
 \usepackage{physics}
-\usepackage{natbib}                     % this package allows you to link your references
 \usepackage{graphicx}					% graphics package
 \graphicspath{ {figures/}{figures/eps/}{figures/pdf/} }% specify the path where figures are located
 \usepackage{fancyhdr}                   % fancy headers and footers
@@ -60,6 +59,9 @@
 \usepackage{mathrsfs}                   % additional math scripts
 \usepackage{braket}
 \usepackage{url,hyperref}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{nsf_new_url}
 
 \setlength{\marginparwidth}{1.9cm}
 \usepackage[textsize=tiny]{todonotes}
@@ -125,7 +127,7 @@
     % BIBLIOGRAPHY
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \makeBibliographyPage % make the bibliography title page - can be edited in ut-thesis-template.tex
-    \bibliographystyle{unsrt} % bibliography style - recommend using apalike-doi as it hyperlinks DOIs
+    % \bibliographystyle{nsf_new_url} % bibliography style - recommend using apalike-doi as it hyperlinks DOIs
     \bibliography{references/references-dissertation.bib} % references.bib included in the references directory
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % APPENDIX - OPTIONAL - COMMENT IF NOT NEEDED

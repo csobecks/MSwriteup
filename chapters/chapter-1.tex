@@ -29,7 +29,7 @@ In many experiments, the simple harmonic oscillator potential can be realized wi
 The development of this method won the Nobel prize in 1997 for its impact on the physics community \cite{nobelprize.org_1997}. 
 More recently, the potential well has been realized by transferring atoms onto an atomic chip \cite{Es2010}. 
 There are other traps that consist of more exotic shapes, like a trap that is a box in two dimensions (say the x-z and x-y planes) and circular in the other (say the x-y plane) \cite{Mukherjee2017}. 
-After these atoms are placed into the trap, they can be probed using the time of flight (TOF) method. To summarize this method, the atoms are released from the trap by turning it off and the velocity distribution of the trapped atoms is measured \cite{Brzozowski,Wheeler_2003}. This probability distribution of velocities is utilized to extract the single particle occupation numbers, i.e. the number of particles in each energy state $i$ as described above. Then to find the temperature of these distributions, experimentalists use statistical mechanics to fit the data to a prediction from a statistical ensemble. This procedure is essential to extracting the temperature at these ultra-low densities since conventional thermometry, which requires interactions, is not possible. 
+After these atoms are placed into the trap, they can be probed using the time of flight (TOF) method. To summarize this method, the atoms are released from the trap by turning it off, and the velocity distribution of the trapped atoms is measured \cite{Brzozowski,Wheeler_2003}. This probability distribution of velocities is utilized to extract the single particle occupation numbers, i.e. the number of particles in each energy state $i$ as described above. Then to find the temperature of these distributions, experimentalists use statistical mechanics to fit the data to a prediction from a statistical ensemble. This procedure is essential to extracting the temperature at these ultra-low densities since conventional thermometry, which requires interactions, is not possible. 
 
 
 \section{Ensemble Theory for Non-interacting Identical Particles}
@@ -98,7 +98,7 @@ This equation can be used to define the complement as
 \begin{equation}
     \avg{\Bar{n}_i}=1-\avg{n_i}_{GC}=\frac{1}{1+\exp(-\beta(\epsilon_i-\mu))}. \label{GCcomplement}
 \end{equation}
-We recognize this as the same as the term inside the product of Eq.\@ (\ref{ZGCferm}) which allows it to be written as 
+We recognize this to be the same term inside the product of Eq.\@ (\ref{ZGCferm}) which allows it to be written as 
 \begin{equation}
     Z_{GC}=\prod_i \frac{1}{\avg{\Bar{n}_i}}. \label{GCq}
 \end{equation}
@@ -130,7 +130,7 @@ The occupation probabilities for this system thus
     \avg{n_1}_{GC}=\frac{e^{\beta\mu}}{1+e^{\beta\mu}}=\frac{1}{1+e^{-\beta\mu}}\\
     \avg{n_2}_{GC}=\frac{e^{-\beta(\Delta-\mu)}}{1+ e^{-\beta(\Delta-\mu)}}.
 \end{gather}
-Here, the chemical potential, $\mu$, is used to control the average number of particles in the system. There is one particle so the probabilities of level one and level two should add up to one. For this case, the chemical potential is found as 
+Here, the chemical potential, $\mu$, is used to control the average number of particles in the system. There is one particle, so the probabilities of level one and level two should add up to one. For this case, the chemical potential is found as 
 \begin{gather}
     \avg{n_1}_{GC}+\avg{n_2}_{GC}=\avg{N}\nonumber\\
     \frac{1}{1+e^{-\beta\mu}}+\frac{e^{-\beta(\Delta-\mu)}}{1+e^{-\beta(\Delta-\mu)}}=1\nonumber\\
@@ -168,8 +168,8 @@ In this equation, the sum over $j$ is over all possible states. The issue with t
     \caption{The solution for the Borrman recursive relation of the canonical partition function for different machine precisions. As $N$ increases, the required precision to accurately find the partition function also increases. The breakdown of the recursion is only delayed by the precision used. Therefore, this is numerically expensive to calculate for $N>60$. Figure adapted from \cite{Jiang}.}
     \label{fig:BorrmannAcc}
 \end{figure}
-As shown, to accurately calculate the partition function, the summation must either be truncated before it fails or the numerical precision used must be increased. The latter method becomes very computationally expensive from a memory standpoint and takes a long time. 
-In addition to this, the $(-1)^{k+1}$ term creates another problem. This term means that the summation is constantly changing signs creating a sort of sign problem. Once again, fixing this problem requires truncation or an increase in numerical precision. Truncating the summation may fail to completely describe the partition function and higher precision requires more memory. Given these problems, it is necessary to use a different approach. 
+As shown, to accurately calculate the partition function, the summation must either be truncated before it fails, or the numerical precision used must be increased. The latter method becomes very computationally expensive from a memory standpoint and takes a long time. 
+In addition to this, the $(-1)^{k+1}$ term creates another problem. This term means that the summation is constantly changing signs creating a sort of sign problem. Once again, fixing this problem requires truncation or an increase in numerical precision. Truncating the summation may fail to completely describe the partition function, and higher precision requires more memory. Given these problems, it is necessary to use a different approach. 
 
 Instead of using this general recursive relation, it is helpful to see if there are any specific cases that can be solved. The easiest example would be that of fermions confined in a harmonic trap. An exact solution was found for this spectrum by Sch\"onhammer \cite{Schon1996}. For the one dimensional simple harmonic oscillator, the partition function was found to be
 \begin{equation}
@@ -200,7 +200,7 @@ By substituting this into Eq.\@ (\ref{newZN}) we see that
 \end{equation}
 This equation can be understood by looking at each term on the right side. On the left side of the addition, the $Z_N^{\backslash\{j\}}$ term is the canonical partition function of $N$ particles with no particle in the $j$th energy level. This represents the complementary probability, or the probability that energy level $\epsilon_j$ is unoccupied. The term on the right hand side has a Boltzmann probability for energy level $\epsilon_j$ times the canonical partition function of $N-1$ particles with no particle at the $j$th energy level. The Boltzmann term introduces the probability of occupying state $j$ with a particle, so the total number of particles on the right hand side of the addition is $N$, the same as the left. The state that is excluded from the partition function is reintroduced meaning that this term is the probability that energy level $\epsilon_j$ is occupied. Since the state can only be occupied or unoccupied for fermions, we can recognize that the full partition function is a sum of the unoccupied and occupied terms, or the full probability. 
 
-To understand this better, let's consider another simple example with only two energy levels $\epsilon_1$ and $\epsilon_2$. The canonical partition functions is 
+To understand this better, let's consider another simple example with only two energy levels $\epsilon_1$ and $\epsilon_2$. The canonical partition function is 
 \begin{equation}
     Z_N = \begin{cases}
     1 & N=0\\
