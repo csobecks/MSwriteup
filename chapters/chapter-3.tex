@@ -39,7 +39,7 @@ where $N$ is the number of particles in the true canonical system. In the previo
 \end{figure}
 
 \section{Numerical results of nondegenerate spectra}
-In this section, we will consider the case where our spectrum is nondegenerate. From Section 1.4, we expect that the error of the temperature measurement $\beta^*$ in the grand canonical ensemble should reach $100\%$ once $\beta$ gets sufficiently large. We also saw the same result in Section 2.5.1 when $g_0=g_1=g_{-1}=...=1$ in Eq.\@ (\ref{filldegencheck}). We consider the simple harmonic oscillator (linear spectrum) and the potential well spectrum (quadratic spectrum). The numerical results are shown in Figs.\@ (\ref{fig:linnondeg}) and (\ref{fig:quadnondeg}) where the y-axis is $\frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}$. %An interesting difference between the two figures is length of the x-axis.
+In this section, we will consider the case where our spectrum is nondegenerate. From Section \ref{section:simpleexample}, we expect that the error of the temperature measurement $\beta^*$ in the grand canonical ensemble should reach $100\%$ once $\beta$ gets sufficiently large. We also saw the same result in Section \ref{section:filleddegen} when $g_0=g_1=g_{-1}=...=1$ in Eq.\@ (\ref{filldegencheck}). We consider the simple harmonic oscillator (linear spectrum) and the potential well spectrum (quadratic spectrum). The numerical results are shown in Figs.\@ (\ref{fig:linnondeg}) and (\ref{fig:quadnondeg}) where the y-axis is $\frac{\delta\beta}{\beta}=\frac{\beta^*-\beta}{\beta}$. %An interesting difference between the two figures is length of the x-axis.
 The linear spectrum reaches $100\%$ error slower than the quadratic error. This is due to the spacing between energy levels. For the linear spectrum, this spacing is constant, while the quadratic spectrum has a spacing that linearly increases. This means that more energy is required to fill the first excited state for the quadratic spectrum as the number of particles increases. The spacing term $\Delta_0$ will always increase, and thus the Boltzmann probability $e^{-\beta\Delta_0}$ that the state is occupied will continually decrease. For this reason, it is more difficult to calculate the error for linear spectra. 
 
 \begin{figure}[H]
@@ -58,7 +58,7 @@ The linear spectrum reaches $100\%$ error slower than the quadratic error. This 
 
 
 \section{Numerical results of degenerate spectra}
-In this section, we consider degenerate spectra. Specifically, we want to verify the equations in Section 2.5. We first consider the case where the Fermi level is filled and then consider the case of partial filling. Finally, we investigate a special case where the Fermi level is almost degenerate. 
+In this section, we consider degenerate spectra. Specifically, we want to verify the equations in Section \ref{section:degenerate}. We first consider the case where the Fermi level is filled and then consider the case of partial filling. Finally, we investigate a special case where the Fermi level is almost degenerate. 
 \subsection{Filled Fermi Level}
 To start, the linear energy spectrum is used. Eq.\@ (\ref{filldegen}) is compared with the results from the recursion calculation Fig.\@ (\ref{fig:Filled}).  
 
@@ -128,7 +128,7 @@ Eq.\@ (\ref{3.3}) can be plotted against the program data as seen in Fig. (\ref{
     \caption{Error in $\beta^*$ measurement for a linear energy spectrum with a partially filled Fermi level. The figure is adjusted to plot Eq.\@ (\ref{3.3}). Once $\Delta_0\beta$ is large enough, the error calculated from the code follows the theoretical line in orange.}
     \label{fig:PartiallyFilledDegenerateLinearSpectrumAdjustedError}
 \end{figure}
-We can see that the program is following the theory when $\beta$ is large enough. Turning to the quadratic spectrum, the same calculations are plotted on Figs.\@ (\ref{fig:PartiallyFilledDegenerateQuadraticSpectrumError} and (\ref{fig:PartiallyFilledDegenerateQuadraticSpectrumAdjustedError}). 
+We can see that the program is following the theory when $\beta$ is large enough. Turning to the quadratic spectrum, the same calculations are plotted on Figs.\@ (\ref{fig:PartiallyFilledDegenerateQuadraticSpectrumError}) and (\ref{fig:PartiallyFilledDegenerateQuadraticSpectrumAdjustedError}). 
 
 \begin{figure}[H]
     \centering

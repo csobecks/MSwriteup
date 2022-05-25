@@ -1,6 +1,6 @@
 \chapter{Degeneracy Relationships}
-\section{Filled Degenerate Spectrum}
-For Section 2.6.1 the relationship $\frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}}$ arises. Throughout the following calculations, only the leading order terms will be considered since $e^{-\beta\Delta_0}$ is sufficiently small at large $\beta$ .These values will be calculated here starting with the $\avg{n_0}_{g_0}$ term. Plugging in the value for $\avg{n_0}_{g_0}$ from Equation (2.25),
+\section{Filled Degenerate Spectrum}\label{section:c1}
+For Section \ref{section:filleddegen} the relationship $\frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}}$ arises. Throughout the following calculations, only the leading order terms will be considered since $e^{-\beta\Delta_0}$ is sufficiently small at large $\beta$ .These values will be calculated here starting with the $\avg{n_0}_{g_0}$ term. Plugging in the value for $\avg{n_0}_{g_0}$ from Eq. (\ref{2.20}),
 \begin{align}
     1-\avg{n_0}_{g_0}&=\frac{1+g_0g_1e^{-\beta\Delta_0}+\frac{g_0(g_0-1)g_1(g_1-1)}{4}e^{-2\beta\Delta_0}}{...}\nonumber\\
     & \ \ \ -\frac{1+(g_0-1)e^{-\beta\Delta_0}+\frac{(g_0-1)(g_0-2)g_1(g_1-1)}{4} e^{-2\beta\Delta_0}}{...}\nonumber\\
@@ -19,8 +19,8 @@ Squaring this quantity gives
     \qty(\frac{\avg{n_0}_{g_0}}{1-\avg{n_0}_{g_0}})^2&=\frac{e^{2\beta\Delta_0}}{g_1^2}\qty(1+(g_1+1)(g_0-1)e^{-\beta\Delta_0}).
 \end{align}
 
-\section{Partially Filled Spectrum Chemical Potential}
-The chemical potential is solved for using the particle number like in Equation (2.32). This develops into  
+\section{Partially Filled Spectrum Chemical Potential} \label{section:c2}
+The chemical potential is solved for using the particle number like in Eq. (\ref{2.24}). This develops into  
 \begin{align}
     &g_{-1}+\ell=\frac{g_1}{1+e^{\beta(\Delta_1-\mu)}}+\frac{g_0}{1+e^{-\beta\mu}}+\frac{g_{-1}}{1+e^{\beta(\Delta_{-1}-\mu)}}\\
     &(g_{-1}+\ell)(1+e^{\beta(\Delta_1-\mu)})(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})=g_1(1+e^{-\beta\mu})(1+e^{\beta(\Delta_{-1}-\mu)})\nonumber\\
@@ -53,8 +53,8 @@ Combining both sides together yields,
     &\quad+(1-\frac{g_1}{g_{-1}+\ell}-\frac{g_0}{g_{-1}+\ell}-\frac{g_{-1}}{g_{-1}+\ell}).
 \end{align}
 
-\section{Partially Filled Spectrum $\beta^*$ to $\beta$}
-In Section 2.5.2, it's necessary to write $e^{-\beta^*\Delta_0}$ in terms of $e^{-\beta\Delta_0}$. This is done by starting by setting Equation (2.46) equal to Equation (2.32). This becomes
+\section{Partially Filled Spectrum $\beta^*$ to $\beta$}\label{section:c3}
+In Section \ref{section:partdegen}, it's necessary to write $e^{-\beta^*\Delta_0}$ in terms of $e^{-\beta\Delta_0}$. This is done by starting by setting Eq. (\ref{2.27}) equal to Eq. (\ref{2.42}). This becomes
 
 \begin{align}
     &\frac{1-\avg{n_0}_\ell}{\avg{n_0}_\ell}=e^{-\beta^*\mu }=\frac{1}{2}((\frac{g_0}{\ell}-1)+(\frac{g_1}{\ell}-1)e^{-\beta^*\Delta_0})\\

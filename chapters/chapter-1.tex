@@ -2,8 +2,8 @@
 \section{Statistical Physics}
 Statistical physics is a field of study with its roots in thermodynamics. The initial goal was to understand the thermal properties of matter and the behavior of gases \cite{Kardar}. It has been studied since the 1600's with contributions coming from such prominent physicists as Bernoulli, Maxwell, and Boltzmann \cite{Flamm1998}. Initial studies of the topic  revolved around the understanding of heat processes and engines. These are systems that contain moles of particles interacting with their environment, like heat reservoirs. As technology increased, scientists began to test these statistical theories at lower and lower temperatures. Eventually, the discovery of phenomena such as superconductivity and superfluidity led to the necessity of a new theoretical picture in order to describe the underlying physics. The theory of quantum mechanics explains these phenomena with the help of statistical mechanics. Experimentalists are now at the point where temperatures as low as micro Kelvin are used in experiments \cite{Onofrio2016, Es2010,Bhar}. This technology has given rise to the study of atoms in cold and ultra cold environments. These experiments are perfect testing grounds for some of the fundamental quantum mechanical problems that show up in undergraduate and graduate textbooks. 
 
-\section{Quantum Mechanical Traps}
-In cold atom experiments, cold atomic clouds are placed into a region containing a potential \cite{Bhar}. To understand how these clouds behave, it's necessary to look at some of the potentials that are applied in these experiments. Two example potentials are the harmonic oscillator and the infinite potential well. The energy eigenvalues can be found by solving the Schr\"odinger which is shown in Appendix A. These eigenvalues give the linear spectrum 
+\section{Quantum Mechanical Traps} \label{section:QMtraps}
+In cold atom experiments, cold atomic clouds are placed into a region containing a potential \cite{Bhar}. To understand how these clouds behave, it's necessary to look at some of the potentials that are applied in these experiments. Two example potentials are the harmonic oscillator and the infinite potential well. The energy eigenvalues can be found by solving the Schr\"odinger which is shown in Appendix \ref{section:appendixA}. These eigenvalues give the linear spectrum 
 \begin{equation}
     E_i=\hbar\omega\qty(i+\frac{1}{2}) \label{SHOpot}
 \end{equation}
@@ -53,10 +53,6 @@ To calculate the partition function, an ideal quantum gas of non-interacting ide
 \begin{equation}
     Z_N=\sum_{\{n_i\}}^{'} \exp\qty[-\beta\sum_{i} \epsilon_i n_i]=\sum_{\{n_i\}}^{'} \prod_i \exp\qty[-\beta\epsilon_i n_i]
 \end{equation}
-'
-
-
-
 
 \begin{equation}  
     \sum_i n_i=N.
@@ -106,10 +102,10 @@ We recognize this to be the same term inside the product of Eq.\@ (\ref{ZGCferm}
 The benefit of using the grand canonical ensemble is shown in this equation. 
 For non-interacting fermions, the grand canonical partition function can be found from a simple product that has no restrictions with the average number of particles being enforced by the chemical potential, while the canonical ensemble requires that the particle number condition be met. 
 As previously mentioned, the probability distributions are calculated from the velocity distribution measured from the TOF in cold atom experiments. To extract temperature from the probability distribution, it is easy to fit the data to Eq.\@ (\ref{GCcomplement}) and extract $\beta$ and a formally unphysical value of $\mu$. Further, the data can be used to find the grand canonical partition function which can be used to find other thermodynamic properties of the system, like internal energy or specific heat. In the thermodynamic limit, that is when the number of particles is large. The two ensembles are equivalent so there is no error in fitting the data to the grand canonical ensemble. 
-However, in the latest generation of cold atom experiments that are considered in Section 1.2, the conditions for the thermodynamic limit are not met as the number of particles in the system could be on the order of $10^{4}-10^{5}$ and has a fixed value. Therefore, the correct ensemble to use is the canonical as it describes a system with a fixed number of particles. To understand the error in the common use of the grand canonical ensemble to describe a canonical system, we begin by considering a simple example. 
+However, in the latest generation of cold atom experiments that are considered in Section \ref{section:QMtraps}, the conditions for the thermodynamic limit are not met as the number of particles in the system could be on the order of $10^{4}-10^{5}$ and has a fixed value. Therefore, the correct ensemble to use is the canonical as it describes a system with a fixed number of particles. To understand the error in the common use of the grand canonical ensemble to describe a canonical system, we begin by considering a simple example. 
 
 
-\section{Simple Example}
+\section{Simple Example}\label{section:simpleexample}
 Away from the thermodynamic limit, the grand canonical ensemble does not accurately describe canonical ensemble systems. To quantify the error in using the grand canonical to approximate the canonical, it is useful to look for a worst case scenario.
 Specifically, the inverse temperature $\beta$ will be calculated in each of the ensembles to determine the difference in the measurement. Consider a system with two energy levels, $\epsilon_1=0$ and $\epsilon_2=\Delta$ and one fermion such that $N=1$. In the single particle canonical ensemble, the occupation probability of a single level is given by
 \begin{equation}
@@ -213,7 +209,7 @@ Now using this formulation from above, break down the full spectrum into two sub
     Z_N^1=\begin{cases}1&N=0\\e^{\epsilon_1}& N=1\end{cases}\\
     Z_N^2=\begin{cases}1&N=0\\e^{\epsilon_2}& N=1\end{cases}.
 \end{gather}
-Now the partition function corresponding to each $N$ can be calculated using Equation (1.35)  
+Now the partition function corresponding to each $N$ can be calculated using Eq. \ref{hatemrr}.  
 \begin{gather}
     Z_0= (1)(1)=1\\
     Z_1= (1)(e^{-\beta\epsilon_1})+(e^{-\beta\epsilon_2})(1)=e^{-\beta\epsilon_1}+e^{-\beta\epsilon_2}\\

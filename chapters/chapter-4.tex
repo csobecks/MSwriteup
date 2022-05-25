@@ -1,6 +1,60 @@
 \chapter{Conclusions} \label{ch:conclusion}
 In summary, we have presented a stable recursive method for calculating the canonical partition function for a low temperature non-interacting Fermi gas. This method utilizes the Poisson binomial recursion relation (Eq.\@ (\ref{pbrr})) to take the occupation probabilities in the grand canonical ensemble and map them to a canonical ensemble with $N$ particles (Eq.\@(\ref{ZCasZGC})). This method fixes the numerical instabilities that are present in previous methods of calculating the canonical partition function (Eq.\@ (\ref{Borrmann})) and agrees very well with exact solutions (Eq.\@ (\ref{schoneqn})). The agreement with Sch\"onhammer's exact result is shown in Fig.\@ (\ref{fig: schon solution}) with a controllable accuracy shown in Fig.\@ (\ref{fig: schon diff}). With this agreement, we have a method that can take the occupation probabilities measured via TOF in cold atom experiments and extract the temperature in the canonical ensemble. Further, we have developed the theory to describe the difference in temperature measurements between the canonical ensemble and grand canonical ensemble. From here, we have identified regimes where quantum mechanics and statistic ensembles interact to yield potentially large errors when extracting the temperature. Both nondegenerate and degenerate energy spectra were considered for these regimes resulting in theoretical descriptions of these potential errors. These descriptions were shown to agree with the Poisson binomial recursive solutions as shown in Figs. (\ref{fig:linnondeg}-\ref{fig:quadE_almostdegen}).
 
-An indirect future application is to quantum Monte Carlo (QMC). A sign problem exists in (QMC) for fermions similar to the way that a sign problem showed up in Borrmann's equation (\ref{Borrmann}). There may be a similarity between the sources of these sign problems that would allow for a similar method to be developed for QMC in the canonical ensemble. Along with this, the method of getting the canonical ensemble from the grand canonical ensemble may be applied to QMC calculations that are performed in the grand canonical ensemble, but apply to the canonical ensemble. 
+\section{Application}
+Throughout this paper, ultra cold atom experiments were considered. As a specific example where the methods discussed in this thesis might be applicable, let us consider Mukherjee et al.\@ \cite{Mukherjee2017}. In this experiment, a three dimensional box trap was employed, yielding a spectrum that scales quadratically with the quantum numbers. The coldest temperature in the experiment was measured to be $\frac{T}{T_F}=0.16$ with a density of about $n=10^{12}\frac{1}{\text{cm}^3}$ \cite{Mukherjee2017}. The Fermi energy is given as $E_F=h \cdot 13\times 10^3$Hz leading to an actual base temperature of $T=6.24\times 10^{-7}\text{K}$ \cite{Mukherjee2017}. since this is a quadratic spectrum, the energy levels are given by 
+\begin{equation*}
+    E=\frac{\hbar^2 \pi^2}{2mL^2}(n_x^2+n_y^2+n_z^2)
+\end{equation*}
+where $L=100 \mu$m is given resulting in $N\sim 10^6$ confined in the trap \cite{Mukherjee2017}. To compare this to the figures provided in Chapter \ref{ch:cfd}, the value of $\Delta\beta$ is needed. Note that $\Delta$ is the gap difference between the Fermi level and the first excited state. To start, let $E_F\approx E$ so that the correct value of $n_x, n_y,$ and $n_z$ can be found. Here, the values of $n_x, n_y,$ and $n_z$ will be assumed to be equal and all three will be set to $3n$ to simplify calculations.
+\begin{align*}
+    E&= E_F\\
+    \frac{\hbar^2\pi^2}{2mL^2} 3n^2&=13h\times 10^3\\
+    n^2&=\frac{2mL^2}{3\hbar^2 \pi^2}13h\times 10^3\\
+    &=5225.64\\
+    n&=72.2886\approx 73.
+\end{align*}
+With this, the gap between the first excited state and the fermi energy level, $\Delta$, is
+\begin{align*}
+    \Delta&=E_1-E_F\\
+    &=\frac{\hbar^2\pi^2}{2mL^2}((n+1)^2+n^2+n^2)-\frac{\hbar^2\pi^2}{2mL^2}(n^2+n^2+n^2)\\
+    &=\frac{\hbar^2\pi^2}{2mL^2}(n^2+2n+1+2n^2-3n^2)\\
+    &=\frac{\hbar^2 \pi^2}{2mL^2} (2n+1)\\
+    &=754.12\hbar
+\end{align*}
+Now the inverse Fermi temperature can be found from $E_F=k_B T_F=\frac{1}{\beta_F}$. Since we are interested in $\beta\Delta$, we can write
+\begin{equation*}
+    \frac{E_F}{\Delta}=\frac{1}{\Delta \beta_F}\simeq \frac{2\hbar \pi 13\times 10^3}{754.12\hbar}=108.
+\end{equation*}
+Finally, using the ratio of $\frac{T}{T_F}=0.16$, the value of $\beta\Delta$ is
+\begin{align*}
+    \frac{1}{T}=\frac{1}{0.16 T_F}\\
+    \beta_F=0.16\beta\\
+    0.16\beta\Delta=\beta_F\Delta\\
+    \beta\Delta=\frac{1}{108}\frac{1}{0.16}\simeq 0.0577.
+\end{align*}
+Comparing this to the results in Chapter \ref{ch:cfd}, this puts the error in the range of about $10\%$. Another relevant experiment was performed by Hueck et al.\@ \cite{Hueck2018}. This experiment realized a two dimensional quadratic trap with the lowest achievable temperature of $\frac{T}{T_F}=0.14$. Using a similar procedure as above, the relevant experimental parameters are included in Table \ref{tab:experiment}. As seen in this table, these experiments generally have $\Delta\beta \simeq 0.05$ and as such have the same error range of about $10\%$. A note on this range is that as the density of particles decreases the value of $\Delta\beta$ will increase. Ultimately, this range will be controlled by the location of the Fermi level and the gap between it and the first excited state. Therefore, as the temperature gets lower and fewer particles can be introduced, the errors mentioned in this paper will become more and more relevant. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{||c c c||}
+           \hline
+         & Mukherjee et al.\@ \cite{Mukherjee2017} & Hueck et al.\@ \cite{Hueck2018} \\ [0.5ex]
+         \hline
+         $\frac{E_F}{k_B}$ & $6.213\times10^{-7}$K & $1.498\times10^{-7}$K\\ 
+         \hline
+         $\frac{T}{T_F}$ & 0.16 & 0.14 \\
+         \hline
+         $\frac{\Delta}{k_B}$ & $5.73\times 10^{-9}$K & $1.05\times 10^{-9}$K\\
+         \hline
+         $\Delta\beta$ & 0.058 & 0.052 \\ [1ex]
+         \hline
+    \end{tabular}
+    \caption{Experimental results of cold atom experiments.}
+    \label{tab:experiment}
+\end{table}
+
+\section{Future Directions}
+An indirect future application is to quantum Monte Carlo (QMC). A sign problem exists in (QMC) for fermions similar to the way that a sign problem showed up in Borrmann's Eq. (\ref{Borrmann}). There may be a similarity between the sources of these sign problems that would allow for a similar method to be developed for QMC in the canonical ensemble. Along with this, the method of getting the canonical ensemble from the grand canonical ensemble may be applied to QMC calculations that are performed in the grand canonical ensemble, but apply to the canonical ensemble. 
 
 Future work with this project would be to collaborate with experimentalists and test the method on a variety of experimental data. Through collaboration, improvements to the speed and numerical stability to the method could be found. It would provide experimentalists accurate results for their data and allow for correction to previously published data sets. Through this collaboration, we hope to make a contribution to the field of statistical mechanics.
