@@ -1,0 +1,133 @@
+\chapter{Solutions to the 1D Schr\"odinger Equation} \label{section:appendixA}
+In one dimension, the time independent Schr\"odinger Equation is
+\begin{equation}
+    \mathcal{H}\psi=\frac{P^2}{2m}\psi(x)+V(x)\psi(x)=E\psi(x)
+\end{equation}
+where $\psi(x)$ is the wavefunction, $P$ is the momentum operator, $E$ is the energy eigenvalue, and $V(x)$ is the potential. This equation can be solved exactly for certain potentials. The momentum operator can be written in position space as 
+\begin{equation}
+P=\frac{\hbar}{i}\frac{d}{dx}.
+\end{equation}
+The Schr\"odinger equation then becomes
+\begin{equation}
+    \frac{-\hbar^2}{2m}\frac{d^2 \psi}{dx^2} + V(x) \psi=E\psi.
+\end{equation}
+In the following two sections, the harmonic oscillator and the infinite well will be considered following the work of Griffiths \cite{Griffiths}.
+\section{Harmonic Oscillator}
+The harmonic oscillator has a potential that is defined as 
+\begin{equation}
+    V(x)=\frac{1}{2}m\omega^2 x^2
+\end{equation}
+which is shown in Fig.(\ref{fig:SHOpot}). 
+% \begin{figure}
+%     \centering
+%     \includegraphics{figures/pdf/SHOpot.png}
+%     \caption{Simple Harmonic Potential. Increases quadratically as $x$ moves away from 0.}
+%     \label{fig:SHOpot}
+% \end{figure}
+Plugging this into the Schr\"odinger equation yields
+\begin{equation}
+    \frac{-\hbar^2}{2m}\frac{d^2}{dx^2}\psi+\frac{1}{2}m\omega^2 x^2\psi=E\psi.
+\end{equation}
+This can be rewritten as 
+\begin{equation}
+    E\psi=\frac{1}{2m}\qty[\qty(\frac{\hbar}{i}\frac{d}{dx})^2+\qty(m\omega x)^2]\psi=\mathcal{H}\psi. \label{A.6}
+\end{equation}
+To calculate this, I will introduce the following operator
+\begin{equation}
+    a_{\pm}\equiv \frac{1}{\sqrt{2\hbar m \omega}} (\mp ip+m\omega x).
+\end{equation}
+The Schr\"odinger equation can be written in terms of this raising and lowering operator. To do so, consider that
+\begin{align}
+    a_-a_+&=\frac{1}{2\hbar m\omega} (ip+m\omega x)(-ip+m\omega x)\nonumber\\
+    &=\frac{1}{2\hbar m\omega} [p^2+(m\omega x)^2-im\omega (xp-px)]\nonumber\\
+    &=\frac{1}{2\hbar m\omega} [p^2+(m\omega x)^2]-\frac{i}{2\hbar}[x,p]\nonumber\\
+    &=\frac{1}{2\hbar m\omega} [p^2+(m\omega x)^2]-\frac{i}{2\hbar}(i\hbar)\nonumber\\
+    &=\frac{1}{2\hbar m\omega} [p^2+(m\omega x)^2]+\frac{1}{2}
+\end{align}
+where the commutator $[x,p]=xp-px=i\hbar$ was used in the fourth line. $a_-a_+$ can be substituted into Eq. (\ref{A.6}) to arrive at 
+\begin{equation}
+    \mathcal{H}=\hbar\omega\qty(a_-a_+-\frac{1}{2})
+\end{equation}
+Some properties of the ladder operators will help later calculations,
+\begin{gather}
+    [a_-,a_+]=1\\
+    a_+\psi_i=\sqrt{i+1} \psi_{i+1}\\
+    a_-\psi_i=\sqrt{i}\psi_{i-1}\\
+    a_-\psi_0=0
+\end{gather}
+Using the commutator between the two operators, the Hamiltonian can also be written as 
+\begin{equation}
+    \mathcal{H}=\hbar\omega\qty(a_+a_-+\frac{1}{2}).
+\end{equation}
+The energy spectrum can be calculated by finding the expectation value of this Hamiltonian. For convenience, let $\psi_i=\ket{i}$. This yields 
+\begin{align}
+    E=\avg{\mathcal{H}}&=\braket{i|\mathcal{H}|i}=\braket{i|\hbar\omega (a_+a_-+\frac{1}{2})|i}\nonumber\\
+    &=\hbar\omega \braket{i|a_+a_-|i}+\frac{\hbar\omega}{2}\braket{i|i}\nonumber\\
+    &=\hbar\omega \sqrt{i}\braket{i|a_+|i-1}+\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega i \braket{i|i}+\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega i +\frac{\hbar\omega}{2}\nonumber\\
+    &=\hbar\omega(i+\frac{1}{2}).
+\end{align}
+where $i=0,1,2,3,...$. This is the equation for the energy spectrum of the simple harmonic oscillator. It is a linear equation in $i$, so it is called a linear energy spectrum. The energy spectrum can be seen in Fig. (\ref{fig:Simple Harmonic Oscillator Spectrum}).
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=1.0]{figures/pdf/SHOspectrum.png}
+%     \caption{The energy spectrum of the simple harmonic oscillator. The spacing between energy levels is a constant $\hbar\omega$. For this reason it is called a linear spectrum.}
+%     \label{fig:Simple Harmonic Oscillator Spectrum}
+% \end{figure}
+Throughout this paper, any reference to a linear energy spectrum is directly a reference to the energy spectrum of a simple harmonic oscillator.
+
+\section{Infinite Well}
+The infinite square well is defined with a potential 
+\begin{equation}
+    V(x)=\begin{cases} 0 & 0\leq x \leq a\\
+                       \infty & \text{otherwise}
+        \end{cases}
+\end{equation}
+Plotting this potential shows the "well" shape that gives this potential its name. This is shown in Fig. (\ref{fig: Infinite Well Potential}).
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.75]{figures/pdf/sqwellpot.png}
+%     \caption{Infinite Well Potential. This potential is zero between two endpoints and infinite everywhere else.}
+%     \label{fig: Infinite Well Potential}
+% \end{figure}
+When plugging this potential into the Schr\"odinger equation, the only surviving part is when $V=0$. This means that there's one equation to solve with boundary conditions at $x=0$ and $x=a$. Inserting the potential yields
+\begin{align}
+    -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}&=E\psi\nonumber\\
+    \frac{d^2\psi}{dx^2}&=-\frac{2mE}{\hbar^2}\psi\nonumber\\
+    \frac{d^2\psi}{dx^2}&=-k^2\psi
+\end{align}
+where $k=\frac{\sqrt{2mE}}{\hbar}$. The form of this equation is that of the classical simple harmonic oscillator, so $\psi$ can be directly written as 
+\begin{equation}
+    \psi=A\sin(kx)+B\cos(kx).
+\end{equation}
+The boundary condition at $x=0$ gives the $B$ constant 
+\begin{align}
+    \psi(0)=0&=A\sin(k(0))+B\cos(k(0))\\
+    &=0+B\\
+    B&=0.
+\end{align}
+The other boundary condition gives
+\begin{align}
+    \psi(a)=0=A\sin(ka).
+\end{align}
+The trivial solution to this problem is $A=0$. This does not give any information about the energy spectrum, so instead consider the case where $A\neq 0$. This means that the $\sin(ka)$ term must be zero. This can only happen when $ka=n\pi$ where $n$ is an integer. Since $k$ is related to the energy, the spectrum can be found as
+\begin{align}
+    k=\frac{\sqrt{2mE}}{\hbar}&=\frac{(i+1)\pi}{a}\\
+    E&=\frac{1}{2m} \qty(\frac{\hbar (i+1)\pi}{a})^2 \label{infsqE}
+\end{align}
+where $i=0,1,2,3,...$. Since this equation is quadratic in $i$, it is called the quadratic energy spectrum. The spectrum is shown in Fig. (\ref{fig:Energy spectrum of the infinite square well}). Any reference to a quadratic spectrum in this paper is considering the energy spectrum in Eq.\@ (\ref{infsqE})
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=1.0]{figures/pdf/sqwellspec.png}
+%     \caption{Energy spectrum of the infinite square well. The distance between levels increases linearly. For this reason it is called a quadratic spectrum}
+%     \label{fig:Energy spectrum of the infinite square well}
+% \end{figure}
+Turning back to the wave function, the value for $k$ can be plugged back into the equation for $\psi$ giving
+\begin{equation}
+    \psi(x)=A\sin(\frac{(n+1)\pi}{a}x). \label{infsqwave}
+\end{equation}
+The term $A$ is a normalization constant that is found by solving $\int|\psi(x)|^2 dx$. Doing this gives $A=\sqrt{\frac{2}{a}}$ and Eq. (\ref{infsqwave}) becomes 
+\begin{equation}
+    \psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{(n+1)\pi}{a}x).
+\end{equation}
